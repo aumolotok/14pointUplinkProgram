@@ -31,3 +31,10 @@ C:\Users\Андрей\YandexDisk\Zadanie\Zadanie\bin\Debug\WebDriver.Support.xml
 C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\Zadanie.exe.config
 C:\GitHub\14pointUplinkProgram\Zadanie\obj\Debug\Zadanie.exe
 C:\GitHub\14pointUplinkProgram\Zadanie\obj\Debug\Zadanie.pdb
+C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\Zadanie.exe
+C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\Zadanie.pdb
+C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.dll
+C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.Support.dll
+C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.xml
+C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.Support.xml
+C:\GitHub\14pointUplinkProgram\Zadanie\obj\Debug\Zadanie.csprojResolveAssemblyReference.cache

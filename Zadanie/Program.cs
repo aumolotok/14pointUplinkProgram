@@ -26,6 +26,7 @@ namespace Zadanie
   
         static void TestChoose()
         {
+            Configurator config = new Configurator();
             // IWebDriver driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"),DesiredCapabilities.Firefox());
             IWebDriver driver = new FirefoxDriver();
             TimeSpan time = new TimeSpan(0, 0, 50);
@@ -37,7 +38,7 @@ namespace Zadanie
             loginPage.BuildEmailField();
             loginPage.BuildPasswordField();
             loginPage.BuildSingIn();
-            loginPage.ToSignIn(@"", @"");
+            loginPage.ToSignIn(config.GetEmail(), config.GetPassword());
 
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
             allInsuredPage.BuildeAddButton();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
@@ -8,7 +9,7 @@ using OpenQA.Selenium.Firefox;
 
 namespace Zadanie
 {
-     class XmlWorker
+    class XmlWorker
     {
         public static Dictionary<string, string> TagToLines = new Dictionary<string, string>()
            { { "Workers' Compensation", "<WorkCompPolicyQuoteInqRq>"  },
@@ -28,7 +29,7 @@ namespace Zadanie
 
         static public void LineXmlTest(List<XMlAccordance> PareList)
         {
-            foreach ( XMlAccordance Pare in PareList)
+            foreach (XMlAccordance Pare in PareList)
             {
                 foreach (var e in TagToLines)
                 {
@@ -44,7 +45,7 @@ namespace Zadanie
 
     }
 
-     class XMlAccordance
+    class XMlAccordance
     {
         public string InsuranceType { get; set; }
         public string Xml { get; set; }
@@ -59,9 +60,9 @@ namespace Zadanie
         }
     }
 
-     class XMlAccordanceChecker
+    class XMlAccordanceChecker
     {
-        public List<XMlAccordance> PareList  = new List<XMlAccordance>();
+        public List<XMlAccordance> PareList = new List<XMlAccordance>();
 
         public void AddPare(XMlAccordance accordance)
         {
@@ -72,6 +73,28 @@ namespace Zadanie
 
     }
 
+    class Configurator
+    {
+        private XDocument confDoc; 
+        
+        public Configurator()
+        {
+            confDoc = XDocument.Load(@"C:\GitHub\14pointUplinkProgram\Zadanie\Config.xml");
+        }
 
+        public string GetEmail()
+        {
+         return confDoc.Element("TestConfig").Element("SignIn").Element("Email").Value;
+        }
+
+        public string GetPassword()
+        {
+            return confDoc.Element("TestConfig").Element("SignIn").Element("Password").Value;
+        }
+
+
+
+
+    }
 
 }
