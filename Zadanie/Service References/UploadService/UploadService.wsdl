@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://appulate" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UploadService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IUploadService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IUploadService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IUploadService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="http://appulate" location="https://appulatebeta.com/Upload.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_IUploadService" type="i0:IUploadService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Upload">
+      <soap:operation soapAction="http://appulate/IUploadService/Upload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadStream">
+      <soap:operation soapAction="http://appulate/IUploadService/UploadStream" style="document" />
+      <wsdl:input name="UploadStreamRequest">
+        <soap:header message="i0:UploadStreamRequest_Headers" part="Credentials" use="literal" />
+        <soap:header message="i0:UploadStreamRequest_Headers" part="Options" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadStreamResponse">
+        <soap:header message="i0:UploadStreamResponse_Headers" part="Message" use="literal" />
+        <soap:header message="i0:UploadStreamResponse_Headers" part="Url" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://appulate/IUploadService/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetupDriver">
+      <soap:operation soapAction="http://appulate/IUploadService/SetupDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadBootstrapperLog">
+      <soap:operation soapAction="http://appulate/IUploadService/UploadBootstrapperLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IUploadService1" type="i0:IUploadService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IUploadService1_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Upload">
+      <soap:operation soapAction="http://appulate/IUploadService/Upload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadStream">
+      <soap:operation soapAction="http://appulate/IUploadService/UploadStream" style="document" />
+      <wsdl:input name="UploadStreamRequest">
+        <soap:header message="i0:UploadStreamRequest_Headers" part="Credentials" use="literal" />
+        <soap:header message="i0:UploadStreamRequest_Headers" part="Options" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadStreamResponse">
+        <soap:header message="i0:UploadStreamResponse_Headers" part="Message" use="literal" />
+        <soap:header message="i0:UploadStreamResponse_Headers" part="Url" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap:operation soapAction="http://appulate/IUploadService/Authenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetupDriver">
+      <soap:operation soapAction="http://appulate/IUploadService/SetupDriver" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadBootstrapperLog">
+      <soap:operation soapAction="http://appulate/IUploadService/UploadBootstrapperLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSHttpBinding_IUploadService" type="i0:IUploadService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IUploadService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Upload">
+      <soap12:operation soapAction="http://appulate/IUploadService/Upload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadStream">
+      <soap12:operation soapAction="http://appulate/IUploadService/UploadStream" style="document" />
+      <wsdl:input name="UploadStreamRequest">
+        <soap12:header message="i0:UploadStreamRequest_Headers" part="Credentials" use="literal" />
+        <soap12:header message="i0:UploadStreamRequest_Headers" part="Options" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadStreamResponse">
+        <soap12:header message="i0:UploadStreamResponse_Headers" part="Message" use="literal" />
+        <soap12:header message="i0:UploadStreamResponse_Headers" part="Url" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://appulate/IUploadService/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetupDriver">
+      <soap12:operation soapAction="http://appulate/IUploadService/SetupDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadBootstrapperLog">
+      <soap12:operation soapAction="http://appulate/IUploadService/UploadBootstrapperLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSHttpBinding_IUploadService1" type="i0:IUploadService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IUploadService1_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Upload">
+      <soap12:operation soapAction="http://appulate/IUploadService/Upload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadStream">
+      <soap12:operation soapAction="http://appulate/IUploadService/UploadStream" style="document" />
+      <wsdl:input name="UploadStreamRequest">
+        <soap12:header message="i0:UploadStreamRequest_Headers" part="Credentials" use="literal" />
+        <soap12:header message="i0:UploadStreamRequest_Headers" part="Options" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UploadStreamResponse">
+        <soap12:header message="i0:UploadStreamResponse_Headers" part="Message" use="literal" />
+        <soap12:header message="i0:UploadStreamResponse_Headers" part="Url" use="literal" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authenticate">
+      <soap12:operation soapAction="http://appulate/IUploadService/Authenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetupDriver">
+      <soap12:operation soapAction="http://appulate/IUploadService/SetupDriver" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadBootstrapperLog">
+      <soap12:operation soapAction="http://appulate/IUploadService/UploadBootstrapperLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UploadService">
+    <wsdl:port name="BasicHttpBinding_IUploadService" binding="tns:BasicHttpBinding_IUploadService">
+      <soap:address location="http://app-la-web2/Upload.svc/stream" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IUploadService1" binding="tns:BasicHttpBinding_IUploadService1">
+      <soap:address location="https://appulatebeta.com/Upload.svc/stream" />
+    </wsdl:port>
+    <wsdl:port name="WSHttpBinding_IUploadService" binding="tns:WSHttpBinding_IUploadService">
+      <soap12:address location="http://app-la-web2/Upload.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://app-la-web2/Upload.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="WSHttpBinding_IUploadService1" binding="tns:WSHttpBinding_IUploadService1">
+      <soap12:address location="https://appulatebeta.com/Upload.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://appulatebeta.com/Upload.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

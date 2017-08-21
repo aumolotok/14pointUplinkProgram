@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Appulate.Domain.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Appulate.Domain.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ClientType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Printer" />
+      <xs:enumeration value="OutlookPlugin" />
+      <xs:enumeration value="ExplorerPlugin" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="Forms" />
+      <xs:enumeration value="None" />
+      <xs:enumeration value="ApiCall" />
+      <xs:enumeration value="Service" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClientType" nillable="true" type="tns:ClientType" />
+</xs:schema>

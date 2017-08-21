@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="43a437e2-e7bc-4eac-9098-b98075eb6b99" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://appulatebeta.com/upload.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Upload.xsd" MetadataType="Schema" ID="c195a80b-10dd-4bf5-8a43-fac7d3fd6ded" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?xsd=xsd3" />
+    <MetadataFile FileName="Upload1.xsd" MetadataType="Schema" ID="d53d1338-c5a0-421b-81ea-5509d9cdf01b" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?xsd=xsd5" />
+    <MetadataFile FileName="UploadService.wsdl" MetadataType="Wsdl" ID="0152e604-c439-4496-9d2d-11a89dd4a117" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?wsdl" />
+    <MetadataFile FileName="Upload.wsdl" MetadataType="Wsdl" ID="074b9606-84fa-4160-aaa3-1523511e1973" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Upload2.xsd" MetadataType="Schema" ID="957c1ea4-f281-4b1e-8f54-afd8674ed25f" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?xsd=xsd0" />
+    <MetadataFile FileName="Upload.disco" MetadataType="Disco" ID="7c9f319d-a9a2-4d41-a3bf-7891e5925246" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?disco" />
+    <MetadataFile FileName="Upload3.xsd" MetadataType="Schema" ID="9f065590-1f97-4b95-9920-0ef255390cde" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?xsd=xsd7" />
+    <MetadataFile FileName="Upload4.xsd" MetadataType="Schema" ID="acb484f7-ea1d-4180-a62e-327cdcf540f1" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?xsd=xsd2" />
+    <MetadataFile FileName="Upload5.xsd" MetadataType="Schema" ID="57e313b6-cadb-49d2-bd6f-3b4b76868c6c" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?xsd=xsd6" />
+    <MetadataFile FileName="Upload6.xsd" MetadataType="Schema" ID="65d6997f-bf13-41ec-8aa6-f1cea1dca7f3" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?xsd=xsd4" />
+    <MetadataFile FileName="Upload7.xsd" MetadataType="Schema" ID="c66b7bae-dd24-4f82-a27d-4fb0da252202" SourceId="1" SourceUrl="https://appulatebeta.com/Upload.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.Response" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.Response" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://appulatebeta.com/Upload.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Appulate.Uplink.Service.DocumentUpload.Impl" />
+  <xs:complexType name="UploadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadResponse" nillable="true" type="tns:UploadResponse" />
+  <xs:complexType name="AuthenticationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PasswordHash" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Appulate.Uplink.Service.DocumentUpload.Impl" minOccurs="0" name="Status" type="q1:AuthenticationStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthenticationResponse" nillable="true" type="tns:AuthenticationResponse" />
+  <xs:complexType name="SetupDriverResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DownloadPrinterUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmbedFonts" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MaxFileSize" type="xs:int" />
+      <xs:element minOccurs="0" name="MessageText" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SetupDriverResponse" nillable="true" type="tns:SetupDriverResponse" />
+</xs:schema>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://appulate" elementFormDefault="qualified" targetNamespace="http://appulate" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://appulatebeta.com/Upload.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.DataContracts" />
+  <xs:import schemaLocation="https://appulatebeta.com/Upload.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.Response" />
+  <xs:import schemaLocation="https://appulatebeta.com/Upload.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/Message" />
+  <xs:import schemaLocation="https://appulatebeta.com/Upload.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Appulate.Uplink.Service.DocumentUpload.Impl.BootstrapperLog" />
+  <xs:element name="Upload">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.DataContracts" minOccurs="0" name="credentials" nillable="true" type="q1:Credentials" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.DataContracts" minOccurs="0" name="options" nillable="true" type="q2:UploadOptions" />
+        <xs:element minOccurs="0" name="content" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.Response" minOccurs="0" name="UploadResult" nillable="true" type="q3:UploadResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadStreamRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/Message" name="ContentStream" type="q4:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.DataContracts" name="Credentials" nillable="true" type="q5:Credentials" />
+  <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.DataContracts" name="Options" nillable="true" type="q6:UploadOptions" />
+  <xs:element name="UploadStreamResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Message" nillable="true" type="xs:string" />
+  <xs:element name="Url" nillable="true" type="xs:string" />
+  <xs:element name="Authenticate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.DataContracts" minOccurs="0" name="credentials" nillable="true" type="q7:Credentials" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.Response" minOccurs="0" name="AuthenticateResult" nillable="true" type="q8:AuthenticationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetupDriver">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.DataContracts" minOccurs="0" name="credentials" nillable="true" type="q9:Credentials" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.DataContracts" minOccurs="0" name="options" nillable="true" type="q10:SetupDriverOptions" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetupDriverResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Appulate.DocumentUpload.Service.Response" minOccurs="0" name="SetupDriverResult" nillable="true" type="q11:SetupDriverResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadBootstrapperLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Appulate.Uplink.Service.DocumentUpload.Impl.BootstrapperLog" minOccurs="0" name="type" type="q12:BootstrapperLogType" />
+        <xs:element minOccurs="0" name="file" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userLogin" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadBootstrapperLogResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
