@@ -33,106 +33,96 @@ namespace Zadanie
 
             driver.Manage().Timeouts().ImplicitWait = time;
             driver.Url = "https://appulatebeta.com/signin";
+            
 
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.BuildEmailField();
-            loginPage.BuildPasswordField();
-            loginPage.BuildSingIn();
+            LoginPage loginPage = new LoginPage(driver);         
             loginPage.ToSignIn(config.GetEmail(), config.GetPassword());
 
+
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
-            allInsuredPage.BuildeAddButton();
-            allInsuredPage.addNewButton.Click();
+            allInsuredPage.GoToCreatingNewInsured();
+            
 
             CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
-            newInsuredpage.BuildInsuredName();
-            newInsuredpage.BuildContinue();
             newInsuredpage.createNewInsured();
 
-            CreateNewRquestForQoutePage newRequestFirst = new CreateNewRquestForQoutePage(driver);
-            newRequestFirst.BuildLineDropDown();
-            newRequestFirst.lineDropDown.ChooseOption(newRequestFirst,"General");
-            newRequestFirst.BuildContinue();
-            newRequestFirst.Continue.Click();
+            //
+            CreateNewRquestForQoutePage newRequest = new CreateNewRquestForQoutePage(driver);
+            newRequest.CreateNewRquestForQoute("General");
 
             InsuredPage insuredPage = new InsuredPage(driver);
+
+            XMlAccordanceChecker Checker = new XMlAccordanceChecker();
+            Checker.AddPare(GetXmlOfLine(driver,insuredPage));
+            driver.Close();
+
+            List<string> handlerList = driver.WindowHandles.ToList();
+            driver.SwitchTo().Window(handlerList[0]);
+
+            insuredPage.GoToAddNewRequestForQuote();
+
+            newRequest.CreateNewRquestForQoute("Workers");
+
+            Checker.AddPare(GetXmlOfLine(driver, insuredPage));
+
+
+
+            Console.Read();
+        }
+        static public XMlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)
+        {     
             Thread.Sleep(10000);
             insuredPage.getXML();
             XmlWorker.FindXmlTab(driver);
-
-            XMlAccordanceChecker Checker = new XMlAccordanceChecker();
             XMlAccordance first = new XMlAccordance(insuredPage.PolicyInsuranceType, driver.PageSource);
-            Checker.AddPare(first);
-            driver.Close();
-
-            XmlWorker.LineXmlTest(Checker.PareList);
-
-            foreach( var e in Checker.PareList)
-            {
-                Console.WriteLine(e.InsuranceType +" " + e.isCorrect.ToString()+ " " +e.wasChecked.ToString());
-            }
-
-            //List<string> handlerList = driver.WindowHandles.ToList();
-            //driver.SwitchTo().Window(handlerList[0]);
-
-
-            //driver.Navigate().Refresh();
-            //insuredPage.BuildAddDrop();
-            //insuredPage.FuncrionsDrop.Click();
-            
-
-            //insuredPage.BuildInsuredsTypes();
-            //insuredPage.InsuranceTypes.ChooseOption(insuredPage,"Create");
-                           
-            Console.Read();
-
+            return first;
 
         }
     }
 
     static  class Test
     {
-        public static void testMethod()
-        {
+        //public static void testMethod()
+        //{
 
-            // IWebDriver driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"),DesiredCapabilities.Firefox());
-            IWebDriver driver = new FirefoxDriver();
-            TimeSpan time = new TimeSpan(0, 0, 50);
+        //    // IWebDriver driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"),DesiredCapabilities.Firefox());
+        //    IWebDriver driver = new FirefoxDriver();
+        //    TimeSpan time = new TimeSpan(0, 0, 50);
 
-            driver.Manage().Timeouts().ImplicitWait = time;
-            driver.Url = "https://appulatebeta.com/signin";
+        //    driver.Manage().Timeouts().ImplicitWait = time;
+        //    driver.Url = "https://appulatebeta.com/signin";
 
-            LoginPage loginPage = new LoginPage(driver);
-            loginPage.BuildEmailField();
-            loginPage.BuildPasswordField();
-            loginPage.BuildSingIn();
-            loginPage.ToSignIn(@"akolotilo@appulate.com", @"!APL8@");
+        //    LoginPage loginPage = new LoginPage(driver);
+        //    loginPage.BuildEmailField();
+        //    loginPage.BuildPasswordField();
+        //    loginPage.BuildSingIn();
+        //    loginPage.ToSignIn(@"akolotilo@appulate.com", @"!APL8@");
 
-            AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
-            allInsuredPage.BuildeAddButton();
-            allInsuredPage.addNewButton.Click();
+        //    AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
+        //    allInsuredPage.BuildeAddButton();
+        //    allInsuredPage.addNewButton.Click();
 
-            CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
-            newInsuredpage.BuildInsuredName();
-            newInsuredpage.BuildContinue();
-            newInsuredpage.createNewInsured();
+        //    CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
+        //    newInsuredpage.BuildInsuredName();
+        //    newInsuredpage.BuildContinue();
+        //    newInsuredpage.createNewInsured();
 
-            CreateNewRquestForQoutePage newRequest = new CreateNewRquestForQoutePage(driver);
-            newRequest.setUpAllPageElements();
-            newRequest.CreateNewRquestForQoute();
+        //    CreateNewRquestForQoutePage newRequest = new CreateNewRquestForQoutePage(driver);
+        //    newRequest.setUpAllPageElements();
+        //    newRequest.CreateNewRquestForQoute("General");
 
-            InsuredPage insuredPage = new InsuredPage(driver);
-            insuredPage.getXML();
+        //    InsuredPage insuredPage = new InsuredPage(driver);
+        //    insuredPage.getXML();
 
 
-            XmlWorker.FindXmlTab(driver);
+        //    XmlWorker.FindXmlTab(driver);
 
-            Console.WriteLine(driver.PageSource);
-            Console.WriteLine(insuredPage.PolicyInsuranceType);
-            driver.Close();
+        //    Console.WriteLine(driver.PageSource);
+        //    Console.WriteLine(insuredPage.PolicyInsuranceType);
+        //    driver.Close();
 
-            //driver.Quit(); 
-        }
+        //    //driver.Quit(); 
+        //}
 
 
     }

@@ -57,7 +57,11 @@ namespace Zadanie
         }
 
         public void ToSignIn(string login, string password)
-        {
+        {   
+            BuildEmailField();
+            BuildPasswordField();
+            BuildSingIn();
+
             emailField.InsertText(login);
             passwordField.InsertText(password);
             SignIn.Click();
@@ -76,6 +80,12 @@ namespace Zadanie
         public void BuildeAddButton()
         {
             addNewButton = new Button(driver,addNewButtonLocator);
+        }
+
+        public void GoToCreatingNewInsured()
+        {
+            BuildeAddButton();
+            addNewButton.Click();
         }
 
     }
@@ -104,6 +114,9 @@ namespace Zadanie
 
         public void createNewInsured()
         {
+            BuildInsuredName();
+            BuildContinue();
+
             insuredName.InsertText("NameOne");
             Continue.Click();
         }
@@ -137,14 +150,13 @@ namespace Zadanie
 
  
 
-        public void CreateNewRquestForQoute()
+        public void CreateNewRquestForQoute(string lineType)
         {
-            lineDropDown.Click();
-
-            IWebElement lineOption = FindElement(By.XPath("/html/body/div[8]/ul/li[58]/div"));
-            lineOption.Click();
-
+            BuildLineDropDown();
+            lineDropDown.ChooseOption(this, lineType);
+            BuildContinue();
             Continue.Click();
+
         }
 
 
@@ -192,6 +204,12 @@ namespace Zadanie
         public void GetCurrentPolicyLine()
         {
             PolicyInsuranceType = new BaseElement(driver, PolicyTipeFieldLocator).GetText();
+        }
+
+        public void GoToAddNewRequestForQuote()
+        {
+            BuildInsuredsTypes();
+            InsuranceTypes.ChooseOption(this,"New");
         }
     }
 

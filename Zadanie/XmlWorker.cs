@@ -91,10 +91,6 @@ namespace Zadanie
         {
             return confDoc.Element("TestConfig").Element("SignIn").Element("Password").Value;
         }
-
-
-
-
     }
 
 }
