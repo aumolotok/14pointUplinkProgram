@@ -38,3 +38,13 @@ C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.Support.dll
 C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.xml
 C:\GitHub\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.Support.xml
 C:\GitHub\14pointUplinkProgram\Zadanie\obj\Debug\Zadanie.csprojResolveAssemblyReference.cache
+D:\Automatis\14pointUplinkProgram\Zadanie\bin\Debug\Zadanie.exe.config
+D:\Automatis\14pointUplinkProgram\Zadanie\obj\Debug\Zadanie.exe
+D:\Automatis\14pointUplinkProgram\Zadanie\obj\Debug\Zadanie.pdb
+D:\Automatis\14pointUplinkProgram\Zadanie\bin\Debug\Zadanie.exe
+D:\Automatis\14pointUplinkProgram\Zadanie\bin\Debug\Zadanie.pdb
+D:\Automatis\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.dll
+D:\Automatis\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.Support.dll
+D:\Automatis\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.xml
+D:\Automatis\14pointUplinkProgram\Zadanie\bin\Debug\WebDriver.Support.xml
+D:\Automatis\14pointUplinkProgram\Zadanie\obj\Debug\Zadanie.csprojResolveAssemblyReference.cache

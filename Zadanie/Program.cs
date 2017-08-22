@@ -19,12 +19,17 @@ namespace Zadanie
     {
         static void Main(string[] args)
         {
-            // Test.testMethod();
-            TestChoose();
+
+            Test.TestChoose();
 ;
         }
   
-        static void TestChoose()
+
+    }
+
+    static  class Test
+    {
+        public static void TestChoose()
         {
             Configurator config = new Configurator();
             // IWebDriver driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"),DesiredCapabilities.Firefox());
@@ -33,15 +38,15 @@ namespace Zadanie
 
             driver.Manage().Timeouts().ImplicitWait = time;
             driver.Url = "https://appulatebeta.com/signin";
-            
 
-            LoginPage loginPage = new LoginPage(driver);         
+
+            LoginPage loginPage = new LoginPage(driver);
             loginPage.ToSignIn(config.GetEmail(), config.GetPassword());
 
 
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
             allInsuredPage.GoToCreatingNewInsured();
-            
+
 
             CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
             newInsuredpage.createNewInsured();
@@ -53,7 +58,7 @@ namespace Zadanie
             InsuredPage insuredPage = new InsuredPage(driver);
 
             XMlAccordanceChecker Checker = new XMlAccordanceChecker();
-            Checker.AddPare(GetXmlOfLine(driver,insuredPage));
+            Checker.AddPare(GetXmlOfLine(driver, insuredPage));
             driver.Close();
 
             List<string> handlerList = driver.WindowHandles.ToList();
@@ -65,12 +70,10 @@ namespace Zadanie
 
             Checker.AddPare(GetXmlOfLine(driver, insuredPage));
 
-
-
             Console.Read();
         }
         static public XMlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)
-        {     
+        {
             Thread.Sleep(10000);
             insuredPage.getXML();
             XmlWorker.FindXmlTab(driver);
@@ -78,53 +81,6 @@ namespace Zadanie
             return first;
 
         }
-    }
-
-    static  class Test
-    {
-        //public static void testMethod()
-        //{
-
-        //    // IWebDriver driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"),DesiredCapabilities.Firefox());
-        //    IWebDriver driver = new FirefoxDriver();
-        //    TimeSpan time = new TimeSpan(0, 0, 50);
-
-        //    driver.Manage().Timeouts().ImplicitWait = time;
-        //    driver.Url = "https://appulatebeta.com/signin";
-
-        //    LoginPage loginPage = new LoginPage(driver);
-        //    loginPage.BuildEmailField();
-        //    loginPage.BuildPasswordField();
-        //    loginPage.BuildSingIn();
-        //    loginPage.ToSignIn(@"akolotilo@appulate.com", @"!APL8@");
-
-        //    AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
-        //    allInsuredPage.BuildeAddButton();
-        //    allInsuredPage.addNewButton.Click();
-
-        //    CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
-        //    newInsuredpage.BuildInsuredName();
-        //    newInsuredpage.BuildContinue();
-        //    newInsuredpage.createNewInsured();
-
-        //    CreateNewRquestForQoutePage newRequest = new CreateNewRquestForQoutePage(driver);
-        //    newRequest.setUpAllPageElements();
-        //    newRequest.CreateNewRquestForQoute("General");
-
-        //    InsuredPage insuredPage = new InsuredPage(driver);
-        //    insuredPage.getXML();
-
-
-        //    XmlWorker.FindXmlTab(driver);
-
-        //    Console.WriteLine(driver.PageSource);
-        //    Console.WriteLine(insuredPage.PolicyInsuranceType);
-        //    driver.Close();
-
-        //    //driver.Quit(); 
-        //}
-
-
     }
 
     

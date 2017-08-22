@@ -148,17 +148,13 @@ namespace Zadanie
             Continue = new Button(driver, ContinueLocator);
         } 
 
- 
-
         public void CreateNewRquestForQoute(string lineType)
         {
             BuildLineDropDown();
             lineDropDown.ChooseOption(this, lineType);
             BuildContinue();
             Continue.Click();
-
         }
-
 
         public CreateNewRquestForQoutePage(IWebDriver driver) : base(driver)
         {
@@ -193,7 +189,6 @@ namespace Zadanie
             GetCurrentPolicyLine();
             FuncrionsDrop = new SpanDropDown(driver, AdditionalFunctionsDropLoator, AdditionalOptionsLocatorLocator);;
             FuncrionsDrop.ChooseOption(this,"Get");
-
         }
 
         public void BuildAddDrop()
@@ -212,7 +207,4 @@ namespace Zadanie
             InsuranceTypes.ChooseOption(this,"New");
         }
     }
-
-    
-
 }
