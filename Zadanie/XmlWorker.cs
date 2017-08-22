@@ -79,7 +79,7 @@ namespace Zadanie
         
         public Configurator()
         {
-            confDoc = XDocument.Load(@"C:\GitHub\14pointUplinkProgram\Zadanie\Config.xml");
+            confDoc = XDocument.Load(@"D:\Automatis\14pointUplinkProgram\Zadanie\Config.xml");
         }
 
         public string GetEmail()
