@@ -31,7 +31,7 @@ namespace Zadanie
     {
         public static void TestChoose()
         {
-            Configurator config = new Configurator();
+            //Configurator config = new Configurator();
             // IWebDriver driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"),DesiredCapabilities.Firefox());
             IWebDriver driver = new FirefoxDriver();
             TimeSpan time = new TimeSpan(0, 0, 50);
@@ -41,8 +41,8 @@ namespace Zadanie
 
 
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.ToSignIn(config.GetEmail(), config.GetPassword());
-
+            // loginPage.ToSignIn(config.GetEmail(), config.GetPassword());
+            loginPage.ToSignIn("", "");
 
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
             allInsuredPage.GoToCreatingNewInsured();
@@ -76,6 +76,7 @@ namespace Zadanie
         {
             Thread.Sleep(10000);
             insuredPage.getXML();
+            Thread.Sleep(100);
             XmlWorker.FindXmlTab(driver);
             XMlAccordance first = new XMlAccordance(insuredPage.PolicyInsuranceType, driver.PageSource);
             return first;
