@@ -15,7 +15,8 @@ namespace Zadanie.PageOdjects
         By DropOptionsLocator = By.CssSelector(" li div.select2-result-label");
 
         public Button Continue;
-        By ContinueLocator = By.XPath("html/body/div[1]/div[2]/main/div/div/div[3]/button[1]");
+        // By ContinueLocator = By.XPath("html/body/div[1]/div[2]/main/div/div/div[3]/button[1]");
+        By ContinueLocator = By.XPath("//div/button[text() =\"Continue\"]");
 
         public void setUpAllPageElements()
         {
