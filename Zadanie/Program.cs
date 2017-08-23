@@ -12,6 +12,8 @@ using OpenQA.Selenium.Chrome;
 using System.Threading;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Xml.Linq;
+using Zadanie.PageElements;
+using Zadanie.PageOdjects;
 
 namespace Zadanie
 {
