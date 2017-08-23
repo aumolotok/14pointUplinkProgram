@@ -24,6 +24,10 @@ namespace Zadanie.PageOdjects
 
         public InsuredPage(IWebDriver driver) : base(driver)
         {
+            Waitor.WaitForScript(driver);
+            InsuranceTypes = new SpanDropDown(driver, insurentTypeDrop, optionsLocator);
+            FuncrionsDrop = new SpanDropDown(driver, additionalFunctionsDropLoator, additionalOptionsLocatorLocator);
+            PolicyInsuranceType = new BaseElement(driver, policyTipeFieldLocator).GetText();
         }
 
         public void BuildInsuredsTypes()
@@ -33,8 +37,8 @@ namespace Zadanie.PageOdjects
 
         public void getXML()
         {
-            GetCurrentPolicyLine();
-            FuncrionsDrop = new SpanDropDown(driver, additionalFunctionsDropLoator, additionalOptionsLocatorLocator); ;
+            //GetCurrentPolicyLine();
+           // FuncrionsDrop = new SpanDropDown(driver, additionalFunctionsDropLoator, additionalOptionsLocatorLocator); ;
             FuncrionsDrop.ChooseOption(this, "Get");
         }
 
@@ -50,7 +54,7 @@ namespace Zadanie.PageOdjects
 
         public void GoToAddNewRequestForQuote()
         {
-            BuildInsuredsTypes();
+            //BuildInsuredsTypes();
             InsuranceTypes.ChooseOption(this, "New");
         }
     }

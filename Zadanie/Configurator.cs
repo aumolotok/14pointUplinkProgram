@@ -13,7 +13,7 @@ namespace Zadanie
 
         public Configurator()
         {
-            confDoc = XDocument.Load(@"D:\Automatis\14pointUplinkProgram\Zadanie\Config.xml");
+            confDoc = XDocument.Load(Environment.CurrentDirectory + "\\Config.xml");
         }
 
         public string GetEmail()

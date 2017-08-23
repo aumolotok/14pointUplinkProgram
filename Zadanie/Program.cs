@@ -57,6 +57,8 @@ namespace Zadanie
             CreateNewRquestForQoutePage newRequest = new CreateNewRquestForQoutePage(driver);
             newRequest.CreateNewRquestForQoute("General");
 
+            Waitor.WaitForScript(driver);
+
             InsuredPage insuredPage = new InsuredPage(driver);
 
             XMlAccordanceChecker Checker = new XMlAccordanceChecker();
