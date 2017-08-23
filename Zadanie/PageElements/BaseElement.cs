@@ -17,7 +17,7 @@ namespace Zadanie.PageElements
             return RootElement.Text;
         }
 
-        public IWebElement waitVisibility(IWebDriver driver, By locator, int seconds = 20)
+        public IWebElement WaitVisibility(IWebDriver driver, By locator, int seconds = 20)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             return (wait.Until(ExpectedConditions.ElementIsVisible(locator)));
@@ -25,7 +25,7 @@ namespace Zadanie.PageElements
 
         public BaseElement(IWebDriver driver, By locator)
         {
-            RootElement = waitVisibility(driver, locator);
+            RootElement = WaitVisibility(driver, locator);
         }
     }
 }

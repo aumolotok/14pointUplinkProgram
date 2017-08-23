@@ -10,15 +10,15 @@ namespace Zadanie.PageOdjects
 {
     class CreateNewInsuredPage : Page
     {
-        TextField insuredName;
+        TextField InsuredName { get; set; }
         By insuredNameLocator = By.Id("Name");
 
-        Button Continue;
+        Button Continue { get; set; }
         By ContinueLocator = By.CssSelector("input[value=\"Continue\"]");
 
         public void BuildInsuredName()
         {
-            insuredName = new TextField(driver, insuredNameLocator);
+            InsuredName = new TextField(driver, insuredNameLocator);
         }
 
         public void BuildContinue()
@@ -35,7 +35,7 @@ namespace Zadanie.PageOdjects
             BuildInsuredName();
             BuildContinue();
 
-            insuredName.InsertText("NameOne");
+            InsuredName.InsertText("NameOne");
             Continue.Click();
         }
 

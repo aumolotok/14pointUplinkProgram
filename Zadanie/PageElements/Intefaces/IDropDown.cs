@@ -9,7 +9,7 @@ namespace Zadanie.PageElements
 {
     interface IDropDown
     {
-        List<IWebElement> options { get; set; }
+        List<IWebElement> Options { get; set; }
         By OptionsLocator { get; set; }
         void GetAllOptions(IWebDriver driver);
         IWebElement OptionSearch(string searchText);

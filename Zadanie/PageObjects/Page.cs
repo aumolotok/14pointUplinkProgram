@@ -23,6 +23,5 @@ namespace Zadanie.PageOdjects
             Url = driver.Url;
             FindElement = this.driver.FindElement;
         }
-
     }
 }

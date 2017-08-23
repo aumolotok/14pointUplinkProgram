@@ -10,13 +10,13 @@ namespace Zadanie.PageOdjects
 {
     class CreateNewRquestForQoutePage : Page
     {
-        public SpanDropDown lineDropDown;
+        public SpanDropDown LineDropDown { get; set; }
         By lineDropDownLocator = By.Id("select2-chosen-1");
-        By DropOptionsLocator = By.CssSelector(" li div.select2-result-label");
+        By dropOptionsLocator = By.CssSelector(" li div.select2-result-label");
 
-        public Button Continue;
+        public Button Continue { get; set; }
         // By ContinueLocator = By.XPath("html/body/div[1]/div[2]/main/div/div/div[3]/button[1]");
-        By ContinueLocator = By.XPath("//div/button[text() =\"Continue\"]");
+        By continueLocator = By.XPath("//div/button[text() =\"Continue\"]");
 
         public void setUpAllPageElements()
         {
@@ -26,18 +26,18 @@ namespace Zadanie.PageOdjects
 
         public void BuildLineDropDown()
         {
-            lineDropDown = new SpanDropDown(driver, lineDropDownLocator, DropOptionsLocator);
+            LineDropDown = new SpanDropDown(driver, lineDropDownLocator, dropOptionsLocator);
         }
 
         public void BuildContinue()
         {
-            Continue = new Button(driver, ContinueLocator);
+            Continue = new Button(driver, continueLocator);
         }
 
         public void CreateNewRquestForQoute(string lineType)
         {
             BuildLineDropDown();
-            lineDropDown.ChooseOption(this, lineType);
+            LineDropDown.ChooseOption(this, lineType);
             BuildContinue();
             Continue.Click();
         }

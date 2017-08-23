@@ -12,15 +12,15 @@ namespace Zadanie.PageOdjects
     {
         public string PolicyInsuranceType { get; set; }
         public BaseElement PolicyTipeField { get; set; }
-        protected By PolicyTipeFieldLocator = By.CssSelector("div.policy-insurance-type");
+        protected By policyTipeFieldLocator = By.CssSelector("div.policy-insurance-type");
 
         public SpanDropDown InsuranceTypes { get; set; }
-        protected By InsurentTypeDrop = By.XPath("//div/span[@class=\"arrow\"]");
-        protected By OptionsLocator = By.CssSelector("li div.select2-result-label");
+        protected By insurentTypeDrop = By.XPath("//div/span[@class=\"arrow\"]");
+        protected By optionsLocator = By.CssSelector("li div.select2-result-label");
 
         public SpanDropDown FuncrionsDrop { get; set; }
-        protected By AdditionalFunctionsDropLoator = By.CssSelector("div button[title = \"Additional functions to work with the questionnaire.\"]");
-        protected By AdditionalOptionsLocatorLocator = By.CssSelector("ul li.drop-down-menu-button__item");
+        protected By additionalFunctionsDropLoator = By.CssSelector("div button[title = \"Additional functions to work with the questionnaire.\"]");
+        protected By additionalOptionsLocatorLocator = By.CssSelector("ul li.drop-down-menu-button__item");
 
         public InsuredPage(IWebDriver driver) : base(driver)
         {
@@ -28,24 +28,24 @@ namespace Zadanie.PageOdjects
 
         public void BuildInsuredsTypes()
         {
-            InsuranceTypes = new SpanDropDown(driver, InsurentTypeDrop, OptionsLocator);
+            InsuranceTypes = new SpanDropDown(driver, insurentTypeDrop, optionsLocator);
         }
 
         public void getXML()
         {
             GetCurrentPolicyLine();
-            FuncrionsDrop = new SpanDropDown(driver, AdditionalFunctionsDropLoator, AdditionalOptionsLocatorLocator); ;
+            FuncrionsDrop = new SpanDropDown(driver, additionalFunctionsDropLoator, additionalOptionsLocatorLocator); ;
             FuncrionsDrop.ChooseOption(this, "Get");
         }
 
         public void BuildAddDrop()
         {
-            FuncrionsDrop = new SpanDropDown(driver, AdditionalFunctionsDropLoator, AdditionalOptionsLocatorLocator);
+            FuncrionsDrop = new SpanDropDown(driver, additionalFunctionsDropLoator, additionalOptionsLocatorLocator);
         }
 
         public void GetCurrentPolicyLine()
         {
-            PolicyInsuranceType = new BaseElement(driver, PolicyTipeFieldLocator).GetText();
+            PolicyInsuranceType = new BaseElement(driver, policyTipeFieldLocator).GetText();
         }
 
         public void GoToAddNewRequestForQuote()

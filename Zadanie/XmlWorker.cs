@@ -12,8 +12,9 @@ namespace Zadanie
     class XmlWorker
     {
         public static Dictionary<string, string> TagToLines = new Dictionary<string, string>()
-           { { "Workers' Compensation", "<WorkCompPolicyQuoteInqRq>"  },
-             { "General Liability", "GeneralLiabilityPolicyQuoteInqRq" }
+           {
+                { "Workers' Compensation", "<WorkCompPolicyQuoteInqRq>"  },
+                { "General Liability", "GeneralLiabilityPolicyQuoteInqRq" }
             };
 
         static public void FindXmlTab(IWebDriver driver)
@@ -27,20 +28,7 @@ namespace Zadanie
             }
         }
 
-        static public void LineXmlTest(List<XMlAccordance> PareList)
-        {
-            foreach (XMlAccordance Pare in PareList)
-            {
-                foreach (var e in TagToLines)
-                {
-                    if (Pare.InsuranceType == e.Key && Pare.Xml.Contains(e.Value))
-                    {
-                        Pare.isCorrect = true;
-                    }
-                }
-                Pare.wasChecked = true;
-            }
-        }
+        
 
 
     }
@@ -69,28 +57,32 @@ namespace Zadanie
             PareList.Add(accordance);
         }
 
+         public void LineXmlTest()
+        {
+            foreach (XMlAccordance Pare in PareList)
+            {
+                foreach (var e in XmlWorker.TagToLines)
+                {
+                    if (Pare.InsuranceType == e.Key && Pare.Xml.Contains(e.Value))
+                    {
+                        Pare.isCorrect = true;
+                    }
+                }
+                Pare.wasChecked = true;
+            }
+        }
 
+        public bool CheckPares()
+        {
+            foreach(var p in PareList)
+            {
+                if ((p.wasChecked == false )|| (p.isCorrect = false))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
     }
-
-    class Configurator
-    {
-        private XDocument confDoc; 
-        
-        public Configurator()
-        {
-            confDoc = XDocument.Load(@"D:\Automatis\14pointUplinkProgram\Zadanie\Config.xml");
-        }
-
-        public string GetEmail()
-        {
-         return confDoc.Element("TestConfig").Element("SignIn").Element("Email").Value;
-        }
-
-        public string GetPassword()
-        {
-            return confDoc.Element("TestConfig").Element("SignIn").Element("Password").Value;
-        }
-    }
-
 }

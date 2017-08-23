@@ -14,6 +14,8 @@ using OpenQA.Selenium.Support.PageObjects;
 using System.Xml.Linq;
 using Zadanie.PageElements;
 using Zadanie.PageOdjects;
+using NUnit;
+using NUnit.Framework;
 
 namespace Zadanie
 {
@@ -23,14 +25,16 @@ namespace Zadanie
         {
 
             Test.MainTest();
-;
+            ;
         }
-  
+
 
     }
 
+    [TestFixture]
     static  class Test
     {
+        [Test]
         public static void MainTest()
         {
             Configurator config = new Configurator();
@@ -39,21 +43,17 @@ namespace Zadanie
             TimeSpan time = new TimeSpan(0, 0, 50);
 
             driver.Manage().Timeouts().ImplicitWait = time;
-            driver.Url = "https://appulatebeta.com/signin";
-
+            driver.Url = config.GetUrl();
 
             LoginPage loginPage = new LoginPage(driver);
              loginPage.ToSignIn(config.GetEmail(), config.GetPassword());
-            //loginPage.ToSignIn("", "");
 
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
             allInsuredPage.GoToCreatingNewInsured();
 
-
             CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
             newInsuredpage.createNewInsured();
 
-            //
             CreateNewRquestForQoutePage newRequest = new CreateNewRquestForQoutePage(driver);
             newRequest.CreateNewRquestForQoute("General");
 
@@ -72,8 +72,13 @@ namespace Zadanie
 
             Checker.AddPare(GetXmlOfLine(driver, insuredPage));
 
-            Console.Read();
+            driver.Quit();
+
+            Checker.LineXmlTest();
+           
+            Assert.IsTrue(Checker.CheckPares());
         }
+
         static public XMlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)
         {
             Thread.Sleep(10000);

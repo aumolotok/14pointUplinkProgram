@@ -10,14 +10,14 @@ namespace Zadanie.PageOdjects
 {
     class LoginPage : Page
     {
-        public TextField emailField;
+        public TextField EmailField { get; set; }
         public By emailFieldLocator = By.Id("email");
 
-        public TextField passwordField;
+        public TextField PasswordField { get; set; }
         public By passwordFieldLocator = By.Id("password");
 
-        public Button SignIn;
-        public By SignInlocation = By.ClassName("signin-button");
+        public Button SignIn { get; set; }
+        public By signInlocation = By.ClassName("signin-button");
 
         public LoginPage(IWebDriver driver) : base(driver)
         {
@@ -25,17 +25,17 @@ namespace Zadanie.PageOdjects
 
         public void BuildEmailField()
         {
-            emailField = new TextField(driver, emailFieldLocator);
+            EmailField = new TextField(driver, emailFieldLocator);
         }
 
         public void BuildPasswordField()
         {
-            passwordField = new TextField(driver, passwordFieldLocator);
+            PasswordField = new TextField(driver, passwordFieldLocator);
         }
 
         public void BuildSingIn()
         {
-            SignIn = new Button(driver, SignInlocation);
+            SignIn = new Button(driver, signInlocation);
         }
 
         public void ToSignIn(string login, string password)
@@ -44,8 +44,8 @@ namespace Zadanie.PageOdjects
             BuildPasswordField();
             BuildSingIn();
 
-            emailField.InsertText(login);
-            passwordField.InsertText(password);
+            EmailField.InsertText(login);
+            PasswordField.InsertText(password);
             SignIn.Click();
         }
     }

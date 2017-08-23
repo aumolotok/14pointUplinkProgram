@@ -10,13 +10,13 @@ namespace Zadanie.PageElements
 {
     class SpanDropDown : ActiveElement, IDropDown
     {
-        public List<IWebElement> options { get; set; }
-        public By OptionsLocator { get; set; } //= By.CssSelector("li.select2-results-dept-0");
+        public List<IWebElement> Options { get; set; }
+        public By OptionsLocator { get; set; } 
 
         public void GetAllOptions(IWebDriver driver)
         {
             Click();
-            options = driver.FindElements(OptionsLocator).ToList();
+            Options = driver.FindElements(OptionsLocator).ToList();
         }
 
 
@@ -27,7 +27,7 @@ namespace Zadanie.PageElements
 
         public IWebElement OptionSearch(string searchText)
         {
-            IEnumerable<IWebElement> result = from element in options
+            IEnumerable<IWebElement> result = from element in Options
                                               where element.Text.Contains(searchText)
                                               select element;
             return result.ToList()[0];
