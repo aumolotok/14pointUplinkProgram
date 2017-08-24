@@ -13,7 +13,7 @@ namespace Autotests.PageElements
     {
         public IWebElement RootElement { get; }
 
-        public string GetText()
+        public virtual string GetText()
         {
             return RootElement.Text;
         }

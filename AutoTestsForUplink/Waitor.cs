@@ -40,7 +40,6 @@ namespace Autotests
                     Thread.Sleep(300);
                 }
             }
-
         }
 
         public static void WaitUntilGo(IWebDriver driver, ICustomElement element)

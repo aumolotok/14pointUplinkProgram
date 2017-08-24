@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Autotests.PageElements.Intefaces
 {
-    interface ICustomElement
+    public interface ICustomElement
     {
         IWebElement RootElement { get;}
     }

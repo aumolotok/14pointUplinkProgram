@@ -11,8 +11,8 @@ namespace Autotests.PageOdjects
 {
     abstract class BasePage
     {
-        public string Url { get; set; }
-        public IWebDriver Driver { get; set;}
+        public string Url { get; }
+        public IWebDriver Driver { get; }
 
         public BasePage(IWebDriver driver)
         {

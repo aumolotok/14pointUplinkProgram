@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Autotests.PageElements
 {
-    interface IDropDown
+    public interface IDropDown
     {
-        List<IWebElement> Options { get; set; }
-        By OptionsLocator { get; set; }
+        List<IWebElement> Options { get; }
+        By OptionsLocator { get; }
         void GetAllOptions(IWebDriver driver);
         IWebElement OptionSearch(string searchText);
     }

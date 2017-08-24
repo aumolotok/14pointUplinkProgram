@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Autotests.PageElements
 {
-    class Button : ActiveElement
+    class Button : InteractiveElement
     {
         public Button(IWebDriver driver, By locator) : base(driver, locator)
         {

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Autotests.PageElements
 {
-    interface IClicable
+    public interface IFillable
     {
-        void Click();
+        void InsertText(string text);
     }
 }

@@ -10,20 +10,20 @@ namespace Autotests.PageOdjects
 {
     class LoginPage : BasePage
     {
-        public TextField EmailField { get; set; }
+        public TextField EmailField { get; }
         private By emailFieldLocator = By.Id("email");
 
-        public TextField PasswordField { get; set; }
+        public TextField PasswordField { get; }
         private By passwordFieldLocator = By.Id("password");
 
         public Button SignIn { get; set; }
-        private By signInlocation = By.ClassName("signin-button");
+        private By signInLocation = By.ClassName("signin-button");
 
         public LoginPage(IWebDriver driver) : base(driver)
         {
             EmailField = new TextField(driver, emailFieldLocator);
             PasswordField = new TextField(driver, passwordFieldLocator);
-            SignIn = new Button(driver, signInlocation);
+            SignIn = new Button(driver, signInLocation);
         }
         public void LogInToSystem(string login, string password)
         {

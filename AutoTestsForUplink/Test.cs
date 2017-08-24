@@ -7,74 +7,89 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace Autotests
 {
    [TestFixture]
-    static class UplinkAutoTests
+    static class UplinkInsuranceLineAndXmlAccordanceTests
     {
+        static IWebDriver driver;
+        static XMlAccordanceChecker Checker;
        [Test]
         public static void InsuranceLineAndXmlAccordanceCheck()
         {
-            Configurator config = new Configurator();
-            IWebDriver driver = new FirefoxDriver();
+            LogIntoSystem();
+
+            CreateNewInsured("General");
+
+            GetXmlOfCurrentLine();
+
+            CreateNewRequestForQuote("Workers");
+
+            GetXmlOfCurrentLine();
+
+            Assert.IsTrue(SumUpResults());
+        }
+
+        static UplinkInsuranceLineAndXmlAccordanceTests()
+        {
+            driver = new FirefoxDriver();
             TimeSpan time = new TimeSpan(0, 0, 50);
 
-
             driver.Manage().Timeouts().ImplicitWait = time;
-            driver.Url = config.GetUrl();
+            driver.Url = Configurator.GetUrl();
+        }
 
+        static public void LogIntoSystem()
+        {
             LoginPage loginPage = new LoginPage(driver);
-            loginPage.LogInToSystem(config.GetEmail(), config.GetPassword());
+            loginPage.LogInToSystem(Configurator.GetEmail(), Configurator.GetPassword());
+        }
 
-
+        static void CreateNewInsured(string line)
+        {
+            
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
             allInsuredPage.GoToCreatingNewInsured();
-
 
             CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
             newInsuredpage.createNewInsured();
 
+            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(driver);
+            newRequest.CreateNewRequestForQuote(line);
+        }
 
-            CreateNewRquestForQoutePage newRequest = new CreateNewRquestForQoutePage(driver);
-            newRequest.CreateNewRquestForQoute("General");
-            
+        static void CreateNewRequestForQuote(string line)
+        {
 
             InsuredPage insuredPage = new InsuredPage(driver);
 
+            insuredPage.GoToAddNewRequestForQuote();
 
-            XMlAccordanceChecker Checker = new XMlAccordanceChecker();
+            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(driver);
+            newRequest.CreateNewRequestForQuote(line);
+        }
+
+        static void GetXmlOfCurrentLine()
+        {
+            InsuredPage insuredPage = new InsuredPage(driver);
+
+            Checker = new XMlAccordanceChecker();
             Checker.AddPare(XmlWorker.GetXmlOfLine(driver, insuredPage));
             driver.Close();
 
-
             List<string> handlerList = driver.WindowHandles.ToList();
             driver.SwitchTo().Window(handlerList[0]);
+        }
 
-
-            insuredPage = new InsuredPage(driver);
-
-
-            insuredPage.GoToAddNewRequestForQuote();
-
-
-            newRequest = new CreateNewRquestForQoutePage(driver);
-            newRequest.CreateNewRquestForQoute("Workers");
-
-
-            insuredPage = new InsuredPage(driver);
-
-
-            Checker.AddPare(XmlWorker.GetXmlOfLine(driver, insuredPage));
-
-
+        static bool SumUpResults()
+        {
             driver.Quit();
-
 
             Checker.LineXmlTest();
 
-
-            Assert.IsTrue(Checker.CheckPares());
+            return Checker.CheckPares();
         }
     }
 }

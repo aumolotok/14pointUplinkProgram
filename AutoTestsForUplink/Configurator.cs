@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,27 +8,20 @@ using System.Xml.Linq;
 
 namespace Autotests
 {
-    class Configurator
+    static class Configurator
     {
-        private XDocument configurationDocument;
-
-        public Configurator()
+        static public string GetEmail()
         {
-            configurationDocument = XDocument.Load(@"D:\Automatis\14pointUplinkProgram\Config.xml");
+            return ConfigurationManager.AppSettings["Email"];
         }
 
-        public string GetEmail()
+        static public string GetPassword()
         {
-            return configurationDocument.Element("TestConfig").Element("SignIn").Element("Email").Value;
+            return ConfigurationManager.AppSettings["Password"];
         }
-
-        public string GetPassword()
+        static public string GetUrl()
         {
-            return configurationDocument.Element("TestConfig").Element("SignIn").Element("Password").Value;
-        }
-        public string GetUrl()
-        {
-            return configurationDocument.Element("TestConfig").Element("Stand").Value;
+            return ConfigurationManager.AppSettings["Stand"];
         }
     }
 }

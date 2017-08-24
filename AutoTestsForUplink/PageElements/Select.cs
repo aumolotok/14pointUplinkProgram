@@ -8,7 +8,7 @@ using Autotests.PageOdjects;
 
 namespace Autotests.PageElements
 {
-    class SpanDropDown : ActiveElement, IDropDown
+    class Select : InteractiveElement, IDropDown
     {
         public List<IWebElement> Options { get; set; }
         public By OptionsLocator { get; set; } 
@@ -20,7 +20,7 @@ namespace Autotests.PageElements
         }
 
 
-        public SpanDropDown(IWebDriver driver, By locator, By optionsLocator) : base(driver, locator)
+        public Select(IWebDriver driver, By locator, By optionsLocator) : base(driver, locator)
         {
             OptionsLocator = optionsLocator;
         }
@@ -30,7 +30,7 @@ namespace Autotests.PageElements
             IEnumerable<IWebElement> result = from element in Options
                                               where element.Text.Contains(searchText)
                                               select element;
-            return result.ToList()[0];
+            return result.First();
         }
 
         public void ChooseOption(BasePage sender, string optionText)

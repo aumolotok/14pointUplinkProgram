@@ -11,28 +11,28 @@ namespace Autotests.PageOdjects
     class InsuredPage : BasePage
     {
         public string PolicyInsuranceType { get; set; }
-        public BaseElement PolicyTipeField { get; set; }
+        public BaseElement PolicyTypeField { get; set; }
         private By policyTypeFieldLocator = By.CssSelector("div.policy-insurance-type");
 
-        public SpanDropDown InsuranceTypes { get; set; }
-        private By insuredTypeDrop = By.XPath("//div/span[@class=\"arrow\"]");
-        private By optionsLocator = By.CssSelector("li div.select2-result-label");
+        public Select InsuranceTypes { get; set; }
+        private By insuredTypeSelect = By.XPath("//div/span[@class=\"arrow\"]");
+        private By insuredTypeOptionsLocator = By.CssSelector("li div.select2-result-label");
 
-        public SpanDropDown FuncrionsDrop { get; set; }
-        private By additionalFunctionsDropLoator = By.CssSelector("div button[title = \"Additional functions to work with the questionnaire.\"]");
-        private By additionalOptionsLocatorLocator = By.CssSelector("ul li.drop-down-menu-button__item");
+        public Select FunctionsSelect { get; set; }
+        private By additionalFunctionsSelectLoator = By.CssSelector("div button[title = \"Additional functions to work with the questionnaire.\"]");
+        private By additionalFunctionsSelectOptionsLocator = By.CssSelector("ul li.drop-down-menu-button__item");
 
         public InsuredPage(IWebDriver driver) : base(driver)
         {
             Waitor.WaitForScript(driver);
-            InsuranceTypes = new SpanDropDown(driver, insuredTypeDrop, optionsLocator);
-            FuncrionsDrop = new SpanDropDown(driver, additionalFunctionsDropLoator, additionalOptionsLocatorLocator);
+            InsuranceTypes = new Select(driver, insuredTypeSelect, insuredTypeOptionsLocator);
+            FunctionsSelect = new Select(driver, additionalFunctionsSelectLoator, additionalFunctionsSelectOptionsLocator);
             PolicyInsuranceType = new BaseElement(driver, policyTypeFieldLocator).GetText();
         }
 
         public void getXML()
         {
-            FuncrionsDrop.ChooseOption(this, "Get");
+            FunctionsSelect.ChooseOption(this, "Get");
         }
 
         public void GoToAddNewRequestForQuote()

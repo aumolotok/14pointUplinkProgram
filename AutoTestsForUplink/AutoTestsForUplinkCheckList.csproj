@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{ED75B6C9-873A-4B87-A4D2-FC857F1D593E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Autotests</RootNamespace>
     <AssemblyName>AutoTestsForUplinkCheckList</AssemblyName>
@@ -50,12 +50,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -80,25 +84,19 @@
     <Compile Include="PageElements\ActiveElement.cs" />
     <Compile Include="PageElements\BaseElement.cs" />
     <Compile Include="PageElements\Button.cs" />
-    <Compile Include="PageElements\Intefaces\IClicable.cs" />
-    <Compile Include="PageElements\Intefaces\ICustomElement.cs" />
-    <Compile Include="PageElements\SpanDropDown.cs" />
+    <Compile Include="PageElements\IClicable.cs" />
+    <Compile Include="PageElements\ICustomElement.cs" />
+    <Compile Include="PageElements\Select.cs" />
     <Compile Include="PageElements\TextField.cs" />
     <Compile Include="PageObjects\AllInsuredPage.cs" />
     <Compile Include="PageObjects\CreateNewInsuredPage.cs" />
     <Compile Include="PageObjects\CreateNewRquestForQoutePage.cs" />
-    <Compile Include="PageElements\Intefaces\IDropDown.cs" />
-    <Compile Include="PageElements\Intefaces\IFillable.cs" />
+    <Compile Include="PageElements\IDropDown.cs" />
+    <Compile Include="PageElements\IFillable.cs" />
     <Compile Include="PageObjects\InsuredPage.cs" />
     <Compile Include="PageObjects\LoginPage.cs" />
     <Compile Include="PageObjects\BasePage.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\UploadService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Test.cs" />
     <Compile Include="Waitor.cs" />
     <Compile Include="XMlAccordance.cs" />
@@ -108,68 +106,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Service References\UploadService\Autotests.UploadService.AuthenticationResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UploadService\Autotests.UploadService.SetupDriverResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UploadService\Autotests.UploadService.UploadResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UploadService\Autotests.UploadService.UploadStreamResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UploadService\Upload.wsdl" />
-    <None Include="Service References\UploadService\Upload.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UploadService\Upload1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UploadService\Upload2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UploadService\Upload3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UploadService\Upload4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UploadService\Upload5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UploadService\Upload6.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UploadService\Upload7.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UploadService\UploadService.wsdl" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\UploadService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UploadService\Upload.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UploadService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UploadService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UploadService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Config.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
@@ -186,6 +122,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.18.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.18.0\build\Selenium.Firefox.WebDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

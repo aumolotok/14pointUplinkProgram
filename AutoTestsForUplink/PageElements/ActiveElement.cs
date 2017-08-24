@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Autotests.PageElements
 {
-    class ActiveElement : BaseElement, IClicable
+    class InteractiveElement : BaseElement, IClicable
     {
         public void Click()
         {
             RootElement.Click();
         }
 
-        public ActiveElement(IWebDriver driver, By locator) : base(driver, locator)
+        public InteractiveElement(IWebDriver driver, By locator) : base(driver, locator)
         {
         }
 
