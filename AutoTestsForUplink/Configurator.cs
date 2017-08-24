@@ -13,7 +13,7 @@ namespace Autotests
 
         public Configurator()
         {
-            confDoc = XDocument.Load(Environment.CurrentDirectory + "\\Config.xml");
+            confDoc = XDocument.Load(@"D:\Automatis\14pointUplinkProgram\Config.xml");
         }
 
         public string GetEmail()

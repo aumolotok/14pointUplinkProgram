@@ -10,15 +10,16 @@ using System.Threading.Tasks;
 
 namespace Autotests
 {
-    [TestFixture]
+   [TestFixture]
     static class Test
     {
-        [Test]
+       [Test]
         public static void MainTest()
         {
             Configurator config = new Configurator();
             IWebDriver driver = new FirefoxDriver();
             TimeSpan time = new TimeSpan(0, 0, 50);
+
 
             driver.Manage().Timeouts().ImplicitWait = time;
             driver.Url = config.GetUrl();
@@ -26,16 +27,21 @@ namespace Autotests
             LoginPage loginPage = new LoginPage(driver);
             loginPage.LogInToSystem(config.GetEmail(), config.GetPassword());
 
+
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
             allInsuredPage.GoToCreatingNewInsured();
+
 
             CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
             newInsuredpage.createNewInsured();
 
+
             CreateNewRquestForQoutePage newRequest = new CreateNewRquestForQoutePage(driver);
             newRequest.CreateNewRquestForQoute("General");
+            
 
             InsuredPage insuredPage = new InsuredPage(driver);
+
 
             XMlAccordanceChecker Checker = new XMlAccordanceChecker();
             Checker.AddPare(XmlWorker.GetXmlOfLine(driver, insuredPage));
