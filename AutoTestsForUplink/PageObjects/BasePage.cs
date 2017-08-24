@@ -12,16 +12,12 @@ namespace Autotests.PageOdjects
     abstract class BasePage
     {
         public string Url { get; set; }
-        public IWebDriver driver { get; set;}
-
-        protected delegate IWebElement Search(By by);
-        protected Search FindElement;
+        public IWebDriver Driver { get; set;}
 
         public BasePage(IWebDriver driver)
         {
-            this.driver = driver;
+            Driver = driver;
             Url = driver.Url;
-            FindElement = this.driver.FindElement;
         }
     }
 }

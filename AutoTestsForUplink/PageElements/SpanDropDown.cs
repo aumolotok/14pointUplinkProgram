@@ -35,7 +35,7 @@ namespace Autotests.PageElements
 
         public void ChooseOption(BasePage sender, string optionText)
         {
-            GetAllOptions(sender.driver);
+            GetAllOptions(sender.Driver);
             OptionSearch(optionText).Click();
         }
     }

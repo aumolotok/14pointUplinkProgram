@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using Autotests.PageOdjects;
 
 namespace Autotests
 {
-    class XmlWorker
+    static class XmlWorker
     {
         public static Dictionary<string, string> TagToLines = new Dictionary<string, string>()
            {
@@ -27,6 +28,14 @@ namespace Autotests
                 { break; }
             }
             Waitor.WaitForXmlReady(driver);
+        }
+
+        static public XMlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)
+        {
+            insuredPage.getXML();
+            XmlWorker.FindXmlTab(driver);
+            XMlAccordance accordance = new XMlAccordance(insuredPage.PolicyInsuranceType, driver.PageSource);
+            return accordance;
         }
     }
 }

@@ -10,23 +10,17 @@ namespace Autotests.PageOdjects
 {
     class AllInsuredsPage : BasePage
     {
-        public Button addNewButton;
+        public Button AddNewButton { get; set; }
         By addNewButtonLocator = By.ClassName("add-new-insured-link");
 
         public AllInsuredsPage(IWebDriver driver) : base(driver)
         {
-        }
-
-        public void BuildeAddButton()
-        {
-            addNewButton = new Button(driver, addNewButtonLocator);
+            AddNewButton = new Button(driver, addNewButtonLocator);
         }
 
         public void GoToCreatingNewInsured()
         {
-            BuildeAddButton();
-            addNewButton.Click();
+            AddNewButton.Click();
         }
-
     }
 }

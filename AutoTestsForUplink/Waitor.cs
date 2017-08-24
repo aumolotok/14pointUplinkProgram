@@ -16,24 +16,21 @@ namespace Autotests
     {
         public static void WaitForScript(IWebDriver driver)
         {
-            IJavaScriptExecutor Script = (IJavaScriptExecutor)driver;
+            IJavaScriptExecutor script = (IJavaScriptExecutor)driver;
             
             for (int i =0; i < 20 ; i++)
             {
-                if ((bool) Script.ExecuteScript("return window.$ != undefined"))
+                if ((bool) script.ExecuteScript("return window.$ != undefined"))
                 {
-                    Console.WriteLine("Go-Go-Go");
                     for (int j = 0; i < 100; i++)
                     {
-                        if ((bool)Script.ExecuteScript("return $.active == 0"))
+                        if ((bool)script.ExecuteScript("return $.active == 0"))
                         {
-                            Console.WriteLine("Yes-yes");
                             break;
                         }
                         else
                         {
                             Thread.Sleep(100);
-                            Console.WriteLine("No-No-No");
                         }
                     }
                     break;
@@ -54,11 +51,11 @@ namespace Autotests
 
         public static void WaitForXmlReady(IWebDriver driver)
         {
-            IJavaScriptExecutor Script = (IJavaScriptExecutor)driver;
+            IJavaScriptExecutor script = (IJavaScriptExecutor)driver;
 
             for (int i=0; i < 2000; i++)
             {
-                if((string)Script.ExecuteScript("return document.readyState") == "complete")
+                if((string)script.ExecuteScript("return document.readyState") == "complete")
                 {
                     break;
                 }

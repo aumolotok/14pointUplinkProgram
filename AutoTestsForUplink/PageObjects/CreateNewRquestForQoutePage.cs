@@ -11,40 +11,24 @@ namespace Autotests.PageOdjects
     class CreateNewRquestForQoutePage : BasePage
     {
         public SpanDropDown LineDropDown { get; set; }
-        By lineDropDownLocator = By.Id("select2-chosen-1");
-        By dropOptionsLocator = By.CssSelector(" li div.select2-result-label");
+        private By lineDropDownLocator = By.Id("select2-chosen-1");
+        private By dropOptionsLocator = By.CssSelector(" li div.select2-result-label");
 
         public Button Continue { get; set; }
-        // By ContinueLocator = By.XPath("html/body/div[1]/div[2]/main/div/div/div[3]/button[1]");
-        By continueLocator = By.XPath("//div/button[text() =\"Continue\"]");
-
-        public void setUpAllPageElements()
-        {
-            BuildLineDropDown();
-            BuildContinue();
-        }
-
-        public void BuildLineDropDown()
-        {
-            LineDropDown = new SpanDropDown(driver, lineDropDownLocator, dropOptionsLocator);
-        }
-
-        public void BuildContinue()
-        {
-            Continue = new Button(driver, continueLocator);
-        }
+        private By continueLocator = By.XPath("//div/button[text() =\"Continue\"]");
 
         public void CreateNewRquestForQoute(string lineType)
         {
-            BuildLineDropDown();
-            LineDropDown.ChooseOption(this, lineType);
-            BuildContinue();
+            LineDropDown.ChooseOption(this, lineType);;
             Continue.Click();
-            Waitor.WaitUntilGo(driver, Continue);
+            Waitor.WaitUntilGo(Driver, Continue);
         }
 
         public CreateNewRquestForQoutePage(IWebDriver driver) : base(driver)
         {
+            LineDropDown = new SpanDropDown(driver, lineDropDownLocator, dropOptionsLocator);
+            Continue = new Button(driver, continueLocator);
         }
+
     }
 }

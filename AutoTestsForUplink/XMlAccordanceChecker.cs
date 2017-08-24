@@ -8,7 +8,7 @@ namespace Autotests
 {
     class XMlAccordanceChecker
     {
-        public List<XMlAccordance> PareList = new List<XMlAccordance>();
+        private List<XMlAccordance> PareList = new List<XMlAccordance>();
 
         public void AddPare(XMlAccordance accordance)
         {
@@ -41,6 +41,5 @@ namespace Autotests
             }
             return true;
         }
-
     }
 }
