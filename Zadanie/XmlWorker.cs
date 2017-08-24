@@ -29,6 +29,4 @@ namespace Autotests
             Waitor.WaitForXmlReady(driver);
         }
     }
-
-
 }
