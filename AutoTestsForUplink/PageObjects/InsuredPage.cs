@@ -12,10 +12,10 @@ namespace Autotests.PageOdjects
     {
         public string PolicyInsuranceType { get; set; }
         public BaseElement PolicyTipeField { get; set; }
-        private By policyTipeFieldLocator = By.CssSelector("div.policy-insurance-type");
+        private By policyTypeFieldLocator = By.CssSelector("div.policy-insurance-type");
 
         public SpanDropDown InsuranceTypes { get; set; }
-        private By insurentTypeDrop = By.XPath("//div/span[@class=\"arrow\"]");
+        private By insuredTypeDrop = By.XPath("//div/span[@class=\"arrow\"]");
         private By optionsLocator = By.CssSelector("li div.select2-result-label");
 
         public SpanDropDown FuncrionsDrop { get; set; }
@@ -25,9 +25,9 @@ namespace Autotests.PageOdjects
         public InsuredPage(IWebDriver driver) : base(driver)
         {
             Waitor.WaitForScript(driver);
-            InsuranceTypes = new SpanDropDown(driver, insurentTypeDrop, optionsLocator);
+            InsuranceTypes = new SpanDropDown(driver, insuredTypeDrop, optionsLocator);
             FuncrionsDrop = new SpanDropDown(driver, additionalFunctionsDropLoator, additionalOptionsLocatorLocator);
-            PolicyInsuranceType = new BaseElement(driver, policyTipeFieldLocator).GetText();
+            PolicyInsuranceType = new BaseElement(driver, policyTypeFieldLocator).GetText();
         }
 
         public void getXML()

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 namespace Autotests
 {
    [TestFixture]
-    static class Test
+    static class UplinkAutoTests
     {
        [Test]
-        public static void MainTest()
+        public static void InsuranceLineAndXmlAccordanceCheck()
         {
             Configurator config = new Configurator();
             IWebDriver driver = new FirefoxDriver();
@@ -47,26 +47,34 @@ namespace Autotests
             Checker.AddPare(XmlWorker.GetXmlOfLine(driver, insuredPage));
             driver.Close();
 
+
             List<string> handlerList = driver.WindowHandles.ToList();
             driver.SwitchTo().Window(handlerList[0]);
 
+
             insuredPage = new InsuredPage(driver);
 
+
             insuredPage.GoToAddNewRequestForQuote();
+
 
             newRequest = new CreateNewRquestForQoutePage(driver);
             newRequest.CreateNewRquestForQoute("Workers");
 
+
             insuredPage = new InsuredPage(driver);
+
 
             Checker.AddPare(XmlWorker.GetXmlOfLine(driver, insuredPage));
 
+
             driver.Quit();
+
 
             Checker.LineXmlTest();
 
+
             Assert.IsTrue(Checker.CheckPares());
         }
-
     }
 }

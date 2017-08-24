@@ -23,7 +23,7 @@ namespace Autotests
     {
         static void Main(string[] args)
         {
-            Test.MainTest();
+            UplinkAutoTests.InsuranceLineAndXmlAccordanceCheck();
         }
     }   
 }

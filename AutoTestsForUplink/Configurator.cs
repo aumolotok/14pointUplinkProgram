@@ -9,25 +9,25 @@ namespace Autotests
 {
     class Configurator
     {
-        private XDocument confDoc;
+        private XDocument configurationDocument;
 
         public Configurator()
         {
-            confDoc = XDocument.Load(@"D:\Automatis\14pointUplinkProgram\Config.xml");
+            configurationDocument = XDocument.Load(@"D:\Automatis\14pointUplinkProgram\Config.xml");
         }
 
         public string GetEmail()
         {
-            return confDoc.Element("TestConfig").Element("SignIn").Element("Email").Value;
+            return configurationDocument.Element("TestConfig").Element("SignIn").Element("Email").Value;
         }
 
         public string GetPassword()
         {
-            return confDoc.Element("TestConfig").Element("SignIn").Element("Password").Value;
+            return configurationDocument.Element("TestConfig").Element("SignIn").Element("Password").Value;
         }
         public string GetUrl()
         {
-            return confDoc.Element("TestConfig").Element("Stand").Value;
+            return configurationDocument.Element("TestConfig").Element("Stand").Value;
         }
     }
 }
