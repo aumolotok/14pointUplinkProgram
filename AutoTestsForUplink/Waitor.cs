@@ -48,7 +48,7 @@ namespace Autotests
 
         public static void WaitUntilGo(IWebDriver driver, ICustomElement element)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             wait.Until(ExpectedConditions.StalenessOf(element.RootElement));
         }
 

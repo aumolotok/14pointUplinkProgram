@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTestsForUplinkCheckList", "Zadanie\AutoTestsForUplinkCheckList.csproj", "{ED75B6C9-873A-4B87-A4D2-FC857F1D593E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTestsForUplinkCheckList", "AutoTestsForUplink\AutoTestsForUplinkCheckList.csproj", "{ED75B6C9-873A-4B87-A4D2-FC857F1D593E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

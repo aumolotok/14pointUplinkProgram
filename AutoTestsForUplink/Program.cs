@@ -29,14 +29,13 @@ namespace Autotests
 
     }
 
-    [TestFixture]
+   [TestFixture]
     static  class Test
     {
-        [Test]
+       [Test]
         public static void MainTest()
         {
             Configurator config = new Configurator();
-            // IWebDriver driver = new RemoteWebDriver(new Uri("http://127.0.0.1:4444/wd/hub"),DesiredCapabilities.Firefox());
             IWebDriver driver = new FirefoxDriver();
             TimeSpan time = new TimeSpan(0, 0, 50);
 
