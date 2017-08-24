@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zadanie.PageElements;
+using Autotests.PageElements;
 
-namespace Zadanie.PageOdjects
+namespace Autotests.PageOdjects
 {
-    class AllInsuredsPage : Page
+    class AllInsuredsPage : BasePage
     {
         public Button addNewButton;
         By addNewButtonLocator = By.ClassName("add-new-insured-link");

@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zadanie.PageElements;
+using Autotests.PageElements;
 
-namespace Zadanie.PageOdjects
+namespace Autotests.PageOdjects
 {
-    class CreateNewRquestForQoutePage : Page
+    class CreateNewRquestForQoutePage : BasePage
     {
         public SpanDropDown LineDropDown { get; set; }
         By lineDropDownLocator = By.Id("select2-chosen-1");
@@ -40,6 +40,7 @@ namespace Zadanie.PageOdjects
             LineDropDown.ChooseOption(this, lineType);
             BuildContinue();
             Continue.Click();
+            Waitor.WaitUntilGo(driver, Continue);
         }
 
         public CreateNewRquestForQoutePage(IWebDriver driver) : base(driver)

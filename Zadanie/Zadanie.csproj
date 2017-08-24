@@ -66,6 +66,7 @@
     <Compile Include="PageElements\BaseElement.cs" />
     <Compile Include="PageElements\Button.cs" />
     <Compile Include="PageElements\Intefaces\IClicable.cs" />
+    <Compile Include="PageElements\Intefaces\ICustomElement.cs" />
     <Compile Include="PageElements\SpanDropDown.cs" />
     <Compile Include="PageElements\TextField.cs" />
     <Compile Include="PageObjects\AllInsuredPage.cs" />
@@ -75,7 +76,7 @@
     <Compile Include="PageElements\Intefaces\IFillable.cs" />
     <Compile Include="PageObjects\InsuredPage.cs" />
     <Compile Include="PageObjects\LoginPage.cs" />
-    <Compile Include="PageObjects\Page.cs" />
+    <Compile Include="PageObjects\BasePage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\UploadService\Reference.cs">
@@ -84,6 +85,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Waitor.cs" />
+    <Compile Include="XMlAccordance.cs" />
+    <Compile Include="XMlAccordanceChecker.cs" />
     <Compile Include="XmlWorker.cs" />
   </ItemGroup>
   <ItemGroup>

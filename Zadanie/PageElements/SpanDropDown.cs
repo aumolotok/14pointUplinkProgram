@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zadanie.PageOdjects;
+using Autotests.PageOdjects;
 
-namespace Zadanie.PageElements
+namespace Autotests.PageElements
 {
     class SpanDropDown : ActiveElement, IDropDown
     {
@@ -33,7 +33,7 @@ namespace Zadanie.PageElements
             return result.ToList()[0];
         }
 
-        public void ChooseOption(Page sender, string optionText)
+        public void ChooseOption(BasePage sender, string optionText)
         {
             GetAllOptions(sender.driver);
             OptionSearch(optionText).Click();

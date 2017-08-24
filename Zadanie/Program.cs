@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zadanie.UploadService;
+using Autotests.UploadService;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Remote;
@@ -12,20 +12,18 @@ using OpenQA.Selenium.Chrome;
 using System.Threading;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Xml.Linq;
-using Zadanie.PageElements;
-using Zadanie.PageOdjects;
+using Autotests.PageElements;
+using Autotests.PageOdjects;
 using NUnit;
 using NUnit.Framework;
 
-namespace Zadanie
+namespace Autotests
 {
     class Program
     {
         static void Main(string[] args)
         {
-
             Test.MainTest();
-            ;
         }
 
 
@@ -56,8 +54,9 @@ namespace Zadanie
 
             CreateNewRquestForQoutePage newRequest = new CreateNewRquestForQoutePage(driver);
             newRequest.CreateNewRquestForQoute("General");
+           
 
-            Waitor.WaitForScript(driver);
+            //Waitor.WaitForScript(driver);
 
             InsuredPage insuredPage = new InsuredPage(driver);
 
@@ -68,24 +67,29 @@ namespace Zadanie
             List<string> handlerList = driver.WindowHandles.ToList();
             driver.SwitchTo().Window(handlerList[0]);
 
+            insuredPage = new InsuredPage(driver);
+
             insuredPage.GoToAddNewRequestForQuote();
 
             newRequest.CreateNewRquestForQoute("Workers");
+
+            insuredPage = new InsuredPage(driver);
 
             Checker.AddPare(GetXmlOfLine(driver, insuredPage));
 
             driver.Quit();
 
             Checker.LineXmlTest();
+
+
            
             Assert.IsTrue(Checker.CheckPares());
         }
 
         static public XMlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)
         {
-            Thread.Sleep(10000);
             insuredPage.getXML();
-            Thread.Sleep(100);
+            
             XmlWorker.FindXmlTab(driver);
             XMlAccordance first = new XMlAccordance(insuredPage.PolicyInsuranceType, driver.PageSource);
             return first;

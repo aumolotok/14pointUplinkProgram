@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zadanie.PageElements;
+using Autotests.PageElements;
 
-namespace Zadanie.PageOdjects
+namespace Autotests.PageOdjects
 {
-    class InsuredPage : Page
+    class InsuredPage : BasePage
     {
         public string PolicyInsuranceType { get; set; }
         public BaseElement PolicyTipeField { get; set; }

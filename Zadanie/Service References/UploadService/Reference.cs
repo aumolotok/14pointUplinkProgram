@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Zadanie.UploadService {
+namespace Autotests.UploadService {
     using System.Runtime.Serialization;
     using System;
     
@@ -103,7 +103,7 @@ namespace Zadanie.UploadService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Zadanie.UploadService.Client ClientField;
+        private Autotests.UploadService.Client ClientField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -116,7 +116,7 @@ namespace Zadanie.UploadService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Zadanie.UploadService.Client Client {
+        public Autotests.UploadService.Client Client {
             get {
                 return this.ClientField;
             }
@@ -150,7 +150,7 @@ namespace Zadanie.UploadService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Zadanie.UploadService.ClientType TypeField;
+        private Autotests.UploadService.ClientType TypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string VersionField;
@@ -166,7 +166,7 @@ namespace Zadanie.UploadService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Zadanie.UploadService.ClientType Type {
+        public Autotests.UploadService.ClientType Type {
             get {
                 return this.TypeField;
             }
@@ -307,7 +307,7 @@ namespace Zadanie.UploadService {
         private string PasswordHashField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Zadanie.UploadService.AuthenticationStatus StatusField;
+        private Autotests.UploadService.AuthenticationStatus StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -346,7 +346,7 @@ namespace Zadanie.UploadService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Zadanie.UploadService.AuthenticationStatus Status {
+        public Autotests.UploadService.AuthenticationStatus Status {
             get {
                 return this.StatusField;
             }
@@ -391,7 +391,7 @@ namespace Zadanie.UploadService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Zadanie.UploadService.Client ClientField;
+        private Autotests.UploadService.Client ClientField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -404,7 +404,7 @@ namespace Zadanie.UploadService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Zadanie.UploadService.Client Client {
+        public Autotests.UploadService.Client Client {
             get {
                 return this.ClientField;
             }
@@ -536,35 +536,35 @@ namespace Zadanie.UploadService {
     public interface IUploadService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/Upload", ReplyAction="http://appulate/IUploadService/UploadResponse")]
-        Zadanie.UploadService.UploadResponse Upload(Zadanie.UploadService.Credentials credentials, Zadanie.UploadService.UploadOptions options, byte[] content);
+        Autotests.UploadService.UploadResponse Upload(Autotests.UploadService.Credentials credentials, Autotests.UploadService.UploadOptions options, byte[] content);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/Upload", ReplyAction="http://appulate/IUploadService/UploadResponse")]
-        System.Threading.Tasks.Task<Zadanie.UploadService.UploadResponse> UploadAsync(Zadanie.UploadService.Credentials credentials, Zadanie.UploadService.UploadOptions options, byte[] content);
+        System.Threading.Tasks.Task<Autotests.UploadService.UploadResponse> UploadAsync(Autotests.UploadService.Credentials credentials, Autotests.UploadService.UploadOptions options, byte[] content);
         
         // CODEGEN: Контракт генерации сообщений с именем упаковщика (UploadStreamRequest) сообщения UploadStreamRequest не соответствует значению по умолчанию (UploadStream).
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/UploadStream", ReplyAction="http://appulate/IUploadService/UploadStreamResponse")]
-        Zadanie.UploadService.UploadStreamResponse UploadStream(Zadanie.UploadService.UploadStreamRequest request);
+        Autotests.UploadService.UploadStreamResponse UploadStream(Autotests.UploadService.UploadStreamRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/UploadStream", ReplyAction="http://appulate/IUploadService/UploadStreamResponse")]
-        System.Threading.Tasks.Task<Zadanie.UploadService.UploadStreamResponse> UploadStreamAsync(Zadanie.UploadService.UploadStreamRequest request);
+        System.Threading.Tasks.Task<Autotests.UploadService.UploadStreamResponse> UploadStreamAsync(Autotests.UploadService.UploadStreamRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/Authenticate", ReplyAction="http://appulate/IUploadService/AuthenticateResponse")]
-        Zadanie.UploadService.AuthenticationResponse Authenticate(Zadanie.UploadService.Credentials credentials);
+        Autotests.UploadService.AuthenticationResponse Authenticate(Autotests.UploadService.Credentials credentials);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/Authenticate", ReplyAction="http://appulate/IUploadService/AuthenticateResponse")]
-        System.Threading.Tasks.Task<Zadanie.UploadService.AuthenticationResponse> AuthenticateAsync(Zadanie.UploadService.Credentials credentials);
+        System.Threading.Tasks.Task<Autotests.UploadService.AuthenticationResponse> AuthenticateAsync(Autotests.UploadService.Credentials credentials);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/SetupDriver", ReplyAction="http://appulate/IUploadService/SetupDriverResponse")]
-        Zadanie.UploadService.SetupDriverResponse SetupDriver(Zadanie.UploadService.Credentials credentials, Zadanie.UploadService.SetupDriverOptions options);
+        Autotests.UploadService.SetupDriverResponse SetupDriver(Autotests.UploadService.Credentials credentials, Autotests.UploadService.SetupDriverOptions options);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/SetupDriver", ReplyAction="http://appulate/IUploadService/SetupDriverResponse")]
-        System.Threading.Tasks.Task<Zadanie.UploadService.SetupDriverResponse> SetupDriverAsync(Zadanie.UploadService.Credentials credentials, Zadanie.UploadService.SetupDriverOptions options);
+        System.Threading.Tasks.Task<Autotests.UploadService.SetupDriverResponse> SetupDriverAsync(Autotests.UploadService.Credentials credentials, Autotests.UploadService.SetupDriverOptions options);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/UploadBootstrapperLog", ReplyAction="http://appulate/IUploadService/UploadBootstrapperLogResponse")]
-        void UploadBootstrapperLog(Zadanie.UploadService.BootstrapperLogType type, string file, string userLogin);
+        void UploadBootstrapperLog(Autotests.UploadService.BootstrapperLogType type, string file, string userLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://appulate/IUploadService/UploadBootstrapperLog", ReplyAction="http://appulate/IUploadService/UploadBootstrapperLogResponse")]
-        System.Threading.Tasks.Task UploadBootstrapperLogAsync(Zadanie.UploadService.BootstrapperLogType type, string file, string userLogin);
+        System.Threading.Tasks.Task UploadBootstrapperLogAsync(Autotests.UploadService.BootstrapperLogType type, string file, string userLogin);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -574,10 +574,10 @@ namespace Zadanie.UploadService {
     public partial class UploadStreamRequest {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://appulate")]
-        public Zadanie.UploadService.Credentials Credentials;
+        public Autotests.UploadService.Credentials Credentials;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://appulate")]
-        public Zadanie.UploadService.UploadOptions Options;
+        public Autotests.UploadService.UploadOptions Options;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://appulate", Order=0)]
         public System.IO.Stream ContentStream;
@@ -585,7 +585,7 @@ namespace Zadanie.UploadService {
         public UploadStreamRequest() {
         }
         
-        public UploadStreamRequest(Zadanie.UploadService.Credentials Credentials, Zadanie.UploadService.UploadOptions Options, System.IO.Stream ContentStream) {
+        public UploadStreamRequest(Autotests.UploadService.Credentials Credentials, Autotests.UploadService.UploadOptions Options, System.IO.Stream ContentStream) {
             this.Credentials = Credentials;
             this.Options = Options;
             this.ContentStream = ContentStream;
@@ -614,12 +614,12 @@ namespace Zadanie.UploadService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IUploadServiceChannel : Zadanie.UploadService.IUploadService, System.ServiceModel.IClientChannel {
+    public interface IUploadServiceChannel : Autotests.UploadService.IUploadService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UploadServiceClient : System.ServiceModel.ClientBase<Zadanie.UploadService.IUploadService>, Zadanie.UploadService.IUploadService {
+    public partial class UploadServiceClient : System.ServiceModel.ClientBase<Autotests.UploadService.IUploadService>, Autotests.UploadService.IUploadService {
         
         public UploadServiceClient() {
         }
@@ -640,63 +640,63 @@ namespace Zadanie.UploadService {
                 base(binding, remoteAddress) {
         }
         
-        public Zadanie.UploadService.UploadResponse Upload(Zadanie.UploadService.Credentials credentials, Zadanie.UploadService.UploadOptions options, byte[] content) {
+        public Autotests.UploadService.UploadResponse Upload(Autotests.UploadService.Credentials credentials, Autotests.UploadService.UploadOptions options, byte[] content) {
             return base.Channel.Upload(credentials, options, content);
         }
         
-        public System.Threading.Tasks.Task<Zadanie.UploadService.UploadResponse> UploadAsync(Zadanie.UploadService.Credentials credentials, Zadanie.UploadService.UploadOptions options, byte[] content) {
+        public System.Threading.Tasks.Task<Autotests.UploadService.UploadResponse> UploadAsync(Autotests.UploadService.Credentials credentials, Autotests.UploadService.UploadOptions options, byte[] content) {
             return base.Channel.UploadAsync(credentials, options, content);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Zadanie.UploadService.UploadStreamResponse Zadanie.UploadService.IUploadService.UploadStream(Zadanie.UploadService.UploadStreamRequest request) {
+        Autotests.UploadService.UploadStreamResponse Autotests.UploadService.IUploadService.UploadStream(Autotests.UploadService.UploadStreamRequest request) {
             return base.Channel.UploadStream(request);
         }
         
-        public string UploadStream(Zadanie.UploadService.Credentials Credentials, Zadanie.UploadService.UploadOptions Options, System.IO.Stream ContentStream, out string Url) {
-            Zadanie.UploadService.UploadStreamRequest inValue = new Zadanie.UploadService.UploadStreamRequest();
+        public string UploadStream(Autotests.UploadService.Credentials Credentials, Autotests.UploadService.UploadOptions Options, System.IO.Stream ContentStream, out string Url) {
+            Autotests.UploadService.UploadStreamRequest inValue = new Autotests.UploadService.UploadStreamRequest();
             inValue.Credentials = Credentials;
             inValue.Options = Options;
             inValue.ContentStream = ContentStream;
-            Zadanie.UploadService.UploadStreamResponse retVal = ((Zadanie.UploadService.IUploadService)(this)).UploadStream(inValue);
+            Autotests.UploadService.UploadStreamResponse retVal = ((Autotests.UploadService.IUploadService)(this)).UploadStream(inValue);
             Url = retVal.Url;
             return retVal.Message;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Zadanie.UploadService.UploadStreamResponse> Zadanie.UploadService.IUploadService.UploadStreamAsync(Zadanie.UploadService.UploadStreamRequest request) {
+        System.Threading.Tasks.Task<Autotests.UploadService.UploadStreamResponse> Autotests.UploadService.IUploadService.UploadStreamAsync(Autotests.UploadService.UploadStreamRequest request) {
             return base.Channel.UploadStreamAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Zadanie.UploadService.UploadStreamResponse> UploadStreamAsync(Zadanie.UploadService.Credentials Credentials, Zadanie.UploadService.UploadOptions Options, System.IO.Stream ContentStream) {
-            Zadanie.UploadService.UploadStreamRequest inValue = new Zadanie.UploadService.UploadStreamRequest();
+        public System.Threading.Tasks.Task<Autotests.UploadService.UploadStreamResponse> UploadStreamAsync(Autotests.UploadService.Credentials Credentials, Autotests.UploadService.UploadOptions Options, System.IO.Stream ContentStream) {
+            Autotests.UploadService.UploadStreamRequest inValue = new Autotests.UploadService.UploadStreamRequest();
             inValue.Credentials = Credentials;
             inValue.Options = Options;
             inValue.ContentStream = ContentStream;
-            return ((Zadanie.UploadService.IUploadService)(this)).UploadStreamAsync(inValue);
+            return ((Autotests.UploadService.IUploadService)(this)).UploadStreamAsync(inValue);
         }
         
-        public Zadanie.UploadService.AuthenticationResponse Authenticate(Zadanie.UploadService.Credentials credentials) {
+        public Autotests.UploadService.AuthenticationResponse Authenticate(Autotests.UploadService.Credentials credentials) {
             return base.Channel.Authenticate(credentials);
         }
         
-        public System.Threading.Tasks.Task<Zadanie.UploadService.AuthenticationResponse> AuthenticateAsync(Zadanie.UploadService.Credentials credentials) {
+        public System.Threading.Tasks.Task<Autotests.UploadService.AuthenticationResponse> AuthenticateAsync(Autotests.UploadService.Credentials credentials) {
             return base.Channel.AuthenticateAsync(credentials);
         }
         
-        public Zadanie.UploadService.SetupDriverResponse SetupDriver(Zadanie.UploadService.Credentials credentials, Zadanie.UploadService.SetupDriverOptions options) {
+        public Autotests.UploadService.SetupDriverResponse SetupDriver(Autotests.UploadService.Credentials credentials, Autotests.UploadService.SetupDriverOptions options) {
             return base.Channel.SetupDriver(credentials, options);
         }
         
-        public System.Threading.Tasks.Task<Zadanie.UploadService.SetupDriverResponse> SetupDriverAsync(Zadanie.UploadService.Credentials credentials, Zadanie.UploadService.SetupDriverOptions options) {
+        public System.Threading.Tasks.Task<Autotests.UploadService.SetupDriverResponse> SetupDriverAsync(Autotests.UploadService.Credentials credentials, Autotests.UploadService.SetupDriverOptions options) {
             return base.Channel.SetupDriverAsync(credentials, options);
         }
         
-        public void UploadBootstrapperLog(Zadanie.UploadService.BootstrapperLogType type, string file, string userLogin) {
+        public void UploadBootstrapperLog(Autotests.UploadService.BootstrapperLogType type, string file, string userLogin) {
             base.Channel.UploadBootstrapperLog(type, file, userLogin);
         }
         
-        public System.Threading.Tasks.Task UploadBootstrapperLogAsync(Zadanie.UploadService.BootstrapperLogType type, string file, string userLogin) {
+        public System.Threading.Tasks.Task UploadBootstrapperLogAsync(Autotests.UploadService.BootstrapperLogType type, string file, string userLogin) {
             return base.Channel.UploadBootstrapperLogAsync(type, file, userLogin);
         }
     }

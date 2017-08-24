@@ -7,9 +7,9 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
-namespace Zadanie.PageOdjects
+namespace Autotests.PageOdjects
 {
-    abstract class Page
+    abstract class BasePage
     {
         public string Url { get; set; }
         public IWebDriver driver { get; set;}
@@ -17,7 +17,7 @@ namespace Zadanie.PageOdjects
         protected delegate IWebElement Search(By by);
         protected Search FindElement;
 
-        public Page(IWebDriver driver)
+        public BasePage(IWebDriver driver)
         {
             this.driver = driver;
             Url = driver.Url;

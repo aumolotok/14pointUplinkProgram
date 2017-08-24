@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Autotests.PageElements.Intefaces;
 
-namespace Zadanie.PageElements
+namespace Autotests.PageElements
 {
-    class BaseElement
+    class BaseElement : ICustomElement
     {
         public IWebElement RootElement { get; }
 

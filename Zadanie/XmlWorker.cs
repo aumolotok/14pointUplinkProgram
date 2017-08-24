@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
-namespace Zadanie
+namespace Autotests
 {
     class XmlWorker
     {
         public static Dictionary<string, string> TagToLines = new Dictionary<string, string>()
            {
-                { "Workers' Compensation", "<WorkCompPolicyQuoteInqRq>"  },
+                { "Workers' Compensation", "WorkCompPolicyQuoteInqRq"/* "ctyrgt" */},
                 { "General Liability", "GeneralLiabilityPolicyQuoteInqRq" }
             };
 
@@ -23,66 +23,12 @@ namespace Zadanie
             for (int i = 0; i < handlerList.Count; i++)
             {
                 driver.SwitchTo().Window(handlerList[i]);
-                if (driver.Title.Contains(@"Q&A") == false)
+                if (driver.Url.Contains(@"acordxml"))
                 { break; }
             }
-        }
-
-        
-
-
-    }
-
-    class XMlAccordance
-    {
-        public string InsuranceType { get; set; }
-        public string Xml { get; set; }
-
-        public bool wasChecked = false;
-        public bool isCorrect = false;
-
-        public XMlAccordance(string insurance, string xml)
-        {
-            InsuranceType = insurance;
-            Xml = xml;
+            Waitor.WaitForXmlReady(driver);
         }
     }
 
-    class XMlAccordanceChecker
-    {
-        public List<XMlAccordance> PareList = new List<XMlAccordance>();
 
-        public void AddPare(XMlAccordance accordance)
-        {
-            PareList.Add(accordance);
-        }
-
-         public void LineXmlTest()
-        {
-            foreach (XMlAccordance Pare in PareList)
-            {
-                foreach (var e in XmlWorker.TagToLines)
-                {
-                    if (Pare.InsuranceType == e.Key && Pare.Xml.Contains(e.Value))
-                    {
-                        Pare.isCorrect = true;
-                    }
-                }
-                Pare.wasChecked = true;
-            }
-        }
-
-        public bool CheckPares()
-        {
-            foreach(var p in PareList)
-            {
-                if ((p.wasChecked == false )|| (p.isCorrect = false))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-    }
 }

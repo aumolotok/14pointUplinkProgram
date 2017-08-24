@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Zadanie.PageElements;
+using Autotests.PageElements;
 
-namespace Zadanie.PageOdjects
+namespace Autotests.PageOdjects
 {
-    class CreateNewInsuredPage : Page
+    class CreateNewInsuredPage : BasePage
     {
         TextField InsuredName { get; set; }
         By insuredNameLocator = By.Id("Name");
