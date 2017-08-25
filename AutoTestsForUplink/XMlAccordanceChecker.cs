@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Autotests
 {
-    class XMlAccordanceChecker
+    class XmlAccordanceChecker
     {
-        private List<XMlAccordance> PareList = new List<XMlAccordance>();
+        private List<XmlAccordance> PareList = new List<XmlAccordance>();
 
-        public void AddPare(XMlAccordance accordance)
+        public void AddPare(XmlAccordance accordance)
         {
             PareList.Add(accordance);
         }
 
         public void LineXmlTest()
         {
-            foreach (XMlAccordance Pare in PareList)
+            foreach (XmlAccordance Pare in PareList)
             {
                 foreach (var e in XmlWorker.TagToLines)
                 {

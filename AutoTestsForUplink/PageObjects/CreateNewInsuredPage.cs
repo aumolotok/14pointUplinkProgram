@@ -10,10 +10,10 @@ namespace Autotests.PageOdjects
 {
     class CreateNewInsuredPage : BasePage
     {
-        TextField InsuredName { get; set; }
+        TextField InsuredName { get; }
         By insuredNameLocator = By.Id("Name");
 
-        Button Continue { get; set; }
+        Button Continue { get; }
         By ContinueLocator = By.CssSelector("input[value=\"Continue\"]");
 
         public CreateNewInsuredPage(IWebDriver driver) : base(driver)

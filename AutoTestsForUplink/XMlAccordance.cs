@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Autotests
 {
-    class XMlAccordance
+    class XmlAccordance
     {
         public string InsuranceType { get; set; }
         public string Xml { get; set; }
@@ -14,7 +14,7 @@ namespace Autotests
         public bool wasChecked = false;
         public bool isCorrect = false;
 
-        public XMlAccordance(string insurance, string xml)
+        public XmlAccordance(string insurance, string xml)
         {
             InsuranceType = insurance;
             Xml = xml;

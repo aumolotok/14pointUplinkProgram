@@ -10,18 +10,18 @@ namespace Autotests.PageOdjects
 {
     class CreateNewRequestForQuotePage : BasePage
     {
-        public Select LineSelect { get; set; }
+        public Select LineSelect { get; }
         private By lineSelectLocator = By.Id("select2-chosen-1");
         private By lineSelectOptionsLocator = By.CssSelector("li div.select2-result-label");
 
-        public Button Continue { get; set; }
+        public Button Continue { get; }
         private By continueLocator = By.XPath("//div/button[text() =\"Continue\"]");
 
         public void CreateNewRequestForQuote(string lineType)
         {
             LineSelect.ChooseOption(this, lineType);
             Continue.Click();
-            Waitor.WaitUntilGo(Driver, Continue);
+            Waitor.WaitUntilEementDisappear(Driver, Continue);
         }
 
         public CreateNewRequestForQuotePage(IWebDriver driver) : base(driver)

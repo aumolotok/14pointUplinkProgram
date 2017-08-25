@@ -11,28 +11,28 @@ namespace Autotests.PageOdjects
     class InsuredPage : BasePage
     {
         public string PolicyInsuranceType { get; set; }
-        public BaseElement PolicyTypeField { get; set; }
+        public BaseElement PolicyTypeField { get; }
         private By policyTypeFieldLocator = By.CssSelector("div.policy-insurance-type");
 
-        public Select InsuranceTypes { get; set; }
+        public Select InsuranceTypes { get; }
         private By insuredTypeSelect = By.XPath("//div/span[@class=\"arrow\"]");
         private By insuredTypeOptionsLocator = By.CssSelector("li div.select2-result-label");
 
-        public Select FunctionsSelect { get; set; }
-        private By additionalFunctionsSelectLoator = By.CssSelector("div button[title = \"Additional functions to work with the questionnaire.\"]");
-        private By additionalFunctionsSelectOptionsLocator = By.CssSelector("ul li.drop-down-menu-button__item");
+        public Select AdditionalFunctionsQuestionnaireSelect { get; }
+        private By additionalFunctionsQuestionnaireSelectLoator = By.CssSelector("div button[title = \"Additional functions to work with the questionnaire.\"]");
+        private By additionalFunctionsQuestionnaireSelectOptionsLocator = By.CssSelector("ul li.drop-down-menu-button__item");
 
         public InsuredPage(IWebDriver driver) : base(driver)
         {
             Waitor.WaitForScript(driver);
             InsuranceTypes = new Select(driver, insuredTypeSelect, insuredTypeOptionsLocator);
-            FunctionsSelect = new Select(driver, additionalFunctionsSelectLoator, additionalFunctionsSelectOptionsLocator);
+            AdditionalFunctionsQuestionnaireSelect = new Select(driver, additionalFunctionsQuestionnaireSelectLoator, additionalFunctionsQuestionnaireSelectOptionsLocator);
             PolicyInsuranceType = new BaseElement(driver, policyTypeFieldLocator).GetText();
         }
 
         public void getXML()
         {
-            FunctionsSelect.ChooseOption(this, "Get");
+            AdditionalFunctionsQuestionnaireSelect.ChooseOption(this, "Get");
         }
 
         public void GoToAddNewRequestForQuote()

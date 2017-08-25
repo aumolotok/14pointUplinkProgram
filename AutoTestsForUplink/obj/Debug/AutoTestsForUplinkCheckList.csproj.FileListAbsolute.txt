@@ -20,3 +20,4 @@ D:\Automatis\14pointUplinkProgram\AutoTestsForUplink\bin\Debug\WebDriver.xml
 D:\Automatis\14pointUplinkProgram\AutoTestsForUplink\bin\Debug\WebDriver.Support.xml
 D:\Automatis\14pointUplinkProgram\AutoTestsForUplink\obj\Debug\AutoTestsForUplinkCheckList.dll
 D:\Automatis\14pointUplinkProgram\AutoTestsForUplink\obj\Debug\AutoTestsForUplinkCheckList.pdb
+D:\Automatis\14pointUplinkProgram\AutoTestsForUplink\obj\Debug\AutoTestsForUplinkCheckList.csprojResolveAssemblyReference.cache

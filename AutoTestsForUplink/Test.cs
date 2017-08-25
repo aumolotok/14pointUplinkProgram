@@ -15,7 +15,7 @@ namespace Autotests
     static class UplinkInsuranceLineAndXmlAccordanceTests
     {
         static IWebDriver driver;
-        static XMlAccordanceChecker Checker;
+        static XmlAccordanceChecker Checker;
        [Test]
         public static void InsuranceLineAndXmlAccordanceCheck()
         {
@@ -75,7 +75,7 @@ namespace Autotests
         {
             InsuredPage insuredPage = new InsuredPage(driver);
 
-            Checker = new XMlAccordanceChecker();
+            Checker = new XmlAccordanceChecker();
             Checker.AddPare(XmlWorker.GetXmlOfLine(driver, insuredPage));
             driver.Close();
 

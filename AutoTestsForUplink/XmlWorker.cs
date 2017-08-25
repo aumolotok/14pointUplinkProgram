@@ -30,11 +30,11 @@ namespace Autotests
             Waitor.WaitForXmlReady(driver);
         }
 
-        static public XMlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)
+        static public XmlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)
         {
             insuredPage.getXML();
             XmlWorker.FindXmlTab(driver);
-            XMlAccordance accordance = new XMlAccordance(insuredPage.PolicyInsuranceType, driver.PageSource);
+            XmlAccordance accordance = new XmlAccordance(insuredPage.PolicyInsuranceType, driver.PageSource);
             return accordance;
         }
     }
