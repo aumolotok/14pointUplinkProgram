@@ -3,6 +3,6 @@ Zadanie/Config\.xml
 
 Config\.xml
 
-AutoTestsForUplink/bin
-AutoTestsForUplink/obj
+/AutoTestsForUplink/bin
+/AutoTestsForUplink/obj
 14pointUplinkProgram\.rar
