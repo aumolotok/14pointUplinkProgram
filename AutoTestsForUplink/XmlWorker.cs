@@ -14,7 +14,7 @@ namespace Autotests
     {
         public static Dictionary<string, string> TagToLines = new Dictionary<string, string>()
            {
-                { "Workers' Compensation", "WorkCompPolicyQuoteInqRq"/* "ctyrgt" */},
+                { "Workers' Compensation", "WorkCompPolicyQuoteInqRq"},
                 { "General Liability", "GeneralLiabilityPolicyQuoteInqRq" }
             };
 
