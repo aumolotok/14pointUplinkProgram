@@ -16,7 +16,7 @@ namespace Autotests.PageOdjects
         public TextField PasswordField { get; }
         private By passwordFieldLocator = By.Id("password");
 
-        public Button SignIn { get; set; }
+        public Button SignIn { get; }
         private By signInLocation = By.ClassName("signin-button");
 
         public LoginPage(IWebDriver driver) : base(driver)
