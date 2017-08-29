@@ -9,6 +9,9 @@ using NUnit.Framework;
 using Autotests.PageElements;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.PageObjects;
+using Autotests.PageElements.Intefaces;
+using OpenQA.Selenium.Support.UI;
 
 namespace Autotests
 {
@@ -19,10 +22,14 @@ namespace Autotests
         public static void test()
         {
 
-            TestPage page = new TestPage();
+            TestPage page = new TestPage(@"https://www.yandex.ru/");
+
+
             InitElementsOfPage(page);
-            int c = page.testBUtton.a;
+            page.testField.Intext();
+            page.testBUtton.RootElement.Click();
         }
+            
 
         public static void InitElementsOfPage(TestPage Page)
         {
@@ -31,48 +38,69 @@ namespace Autotests
             foreach(PropertyInfo property in allproperty)
             {
                 Type propertyType = property.PropertyType;
-                if (propertyType.GetInterface("ITest") != null)
+                if (propertyType.GetInterface("ICustomElement") != null)
                 {
-                    Console.WriteLine(propertyType);
-                    object abs = new object();
-                    ConstructorInfo c = propertyType.GetConstructor(Type.EmptyTypes);
-                    property.SetValue(Page,c.Invoke(null));
+                    ConstructorInfo c = propertyType.GetConstructor( new Type[2] { typeof(TestPage), typeof(By) });
+                    Type attr = typeof(ConstractBy);
+                    ConstractBy a = (ConstractBy)property.GetCustomAttribute(attr);
+
+                    By locator = Helper.GetLocator(a.How, a.Context);
+
+                    property.SetValue(Page,c.Invoke(new object[2] {Page, locator} ));
                 }  
             }
         }
     }
-
+    
     class TestPage
     {
-        IWebDriver driver;
+        public IWebDriver driver { get; set; }
+
+        [ConstractBy(How = How.CssSelector,Context = @".suggest2-form__button")]
         public TestButton testBUtton { get; set; }
+
+        [ConstractBy(How = How.CssSelector,Context = "#text")]
         public TestField testField { get; set; }
-        public testThing tst { get; set; }
         
-        public TestPage()
+        public TestPage(string url)
         {
-            tst = new testThing();
+            driver = new FirefoxDriver();
+            driver.Navigate().GoToUrl(url);
         }
     }
 
-    interface ITest { }
 
-    class TestButton: ITest
+ 
+    class TestButton: ICustomElement
     {
-        public int a;
-        public TestButton()
+        public IWebElement RootElement
+        { get; protected set; }
+
+        public TestButton(TestPage sender, By locator)
         {
-            a = 5;
+            RootElement = WaitVisibility(sender.driver, locator);
         }
+        
+        private IWebElement WaitVisibility(IWebDriver driver, By locator, int seconds = 20)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            return (wait.Until(ExpectedConditions.ElementIsVisible(locator)));
+        }
+
     }
 
-    class TestField : ITest
+    class TestField :TestButton 
     {
-        int b;
-        public TestField()
+        public TestField(TestPage sender, By locator) : base(sender,locator)
         {
-            b = 6;
+            
         }
+
+        public void Intext()
+        {
+            RootElement.SendKeys("Лисица");
+        }
+
     }
     
     class testThing
@@ -83,4 +111,78 @@ namespace Autotests
             c = 7;
         }
     }
+
+
+    public class ConstractBy : System.Attribute
+    {
+        public How How { get; set; }
+        public string Context { get; set; }
+        public By Locator { get; set; }
+
+        public ConstractBy(How how,string context)
+        {
+            How = how;
+            Context = context;
+        }
+
+        public ConstractBy()
+        {
+
+        }
+
+        private By GetLocator(How how,string context)
+        {
+            switch (how)
+            {
+                case How.ClassName:
+                    return By.ClassName(context);
+                case How.CssSelector:
+                    return By.CssSelector(context);
+                case How.Id:
+                    return By.Id(context);
+                case How.LinkText:
+                    return By.LinkText(context);
+                case How.Name:
+                    return By.Name(context);
+                case How.PartialLinkText:
+                    return By.PartialLinkText(context);
+                case How.TagName:
+                    return By.TagName(context);
+                case How.XPath:
+                    return By.XPath(context);
+                default:
+                    return By.Id(context);
+            }              
+        }
+    }
+
+    class Helper
+    {
+        static public By GetLocator(How how, string context)
+        {
+            switch (how)
+            {
+                case How.ClassName:
+                    return By.ClassName(context);
+                case How.CssSelector:
+                    return By.CssSelector(context);
+                case How.Id:
+                    return By.Id(context);
+                case How.LinkText:
+                    return By.LinkText(context);
+                case How.Name:
+                    return By.Name(context);
+                case How.PartialLinkText:
+                    return By.PartialLinkText(context);
+                case How.TagName:
+                    return By.TagName(context);
+                case How.XPath:
+                    return By.XPath(context);
+                default:
+                    return By.Id(context);
+            }
+        }
+
+    }
+    interface ITest { }
 }
