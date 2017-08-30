@@ -10,6 +10,7 @@ namespace Autotests.PageOdjects
 {
     class CreateNewInsuredPage : BasePage
     {
+        []
         TextField InsuredName { get; }
         By insuredNameLocator = By.Id("Name");
 

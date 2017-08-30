@@ -43,7 +43,9 @@ namespace Autotests
 
         static public void LogIntoSystem()
         {
+            
             LoginPage loginPage = new LoginPage(driver);
+            Facility.InitElementsOfPage(loginPage);
             loginPage.LogInToSystem(Configurator.GetEmail(), Configurator.GetPassword());
         }
 

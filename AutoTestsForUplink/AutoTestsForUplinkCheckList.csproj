@@ -81,7 +81,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurator.cs" />
-    <Compile Include="Facility.cs" />
+    <Compile Include="FacilitySystem\ConstractBy.cs" />
+    <Compile Include="FacilitySystem\Facility.cs" />
     <Compile Include="PageElements\ActiveElement.cs" />
     <Compile Include="PageElements\BaseElement.cs" />
     <Compile Include="PageElements\Button.cs" />
