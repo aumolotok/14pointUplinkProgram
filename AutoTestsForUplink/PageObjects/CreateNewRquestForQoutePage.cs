@@ -5,13 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autotests.PageElements;
+using Autotests.FacilitySystem;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace Autotests.PageOdjects
 {
     class CreateNewRequestForQuotePage : BasePage
     {
-        public Select LineSelect { get; }
-        private By lineSelectLocator = By.Id("select2-chosen-1");
+        [ConstractBy(How.Id, "select2-chosen-1")]
+        public Select LineSelect { get; private set; }
+        //private By lineSelectLocator = By.Id("select2-chosen-1");
         private By lineSelectOptionsLocator = By.CssSelector("li div.select2-result-label");
 
         public Button Continue { get; }

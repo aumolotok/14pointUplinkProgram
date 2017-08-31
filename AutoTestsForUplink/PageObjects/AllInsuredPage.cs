@@ -5,17 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autotests.PageElements;
+using Autotests.FacilitySystem;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace Autotests.PageOdjects
 {
     class AllInsuredsPage : BasePage
     {
-        public Button AddNewButton { get; }
-        By addNewButtonLocator = By.ClassName("add-new-insured-link");
+        [ConstractBy(How.ClassName, "add-new-insured-link")]
+        public Button AddNewButton { get; private set; }
+        //By addNewButtonLocator = By.ClassName("add-new-insured-link");
 
         public AllInsuredsPage(IWebDriver driver) : base(driver)
         {
-            AddNewButton = new Button(driver, addNewButtonLocator);
+            //AddNewButton = new Button(driver, addNewButtonLocator);
         }
 
         public void GoToCreatingNewInsured()

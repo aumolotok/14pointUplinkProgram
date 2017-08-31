@@ -53,9 +53,11 @@ namespace Autotests
         {
             
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
+            Facility.InitElementsOfPage(allInsuredPage);
             allInsuredPage.GoToCreatingNewInsured();
 
             CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
+            Facility.InitElementsOfPage(newInsuredpage);
             newInsuredpage.createNewInsured();
 
             CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(driver);
