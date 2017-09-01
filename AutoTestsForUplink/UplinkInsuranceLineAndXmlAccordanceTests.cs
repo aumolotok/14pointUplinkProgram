@@ -39,6 +39,8 @@ namespace Autotests
 
             driver.Manage().Timeouts().ImplicitWait = time;
             driver.Url = Configurator.GetUrl();
+
+            Checker = new XmlAccordanceChecker();
         }
 
         static public void LogIntoSystem()
@@ -75,7 +77,6 @@ namespace Autotests
         {
             InsuredPage insuredPage = new InsuredPage(driver);
 
-            Checker = new XmlAccordanceChecker();
             Checker.AddPare(XmlWorker.GetXmlOfLine(driver, insuredPage));
             driver.Close();
 
