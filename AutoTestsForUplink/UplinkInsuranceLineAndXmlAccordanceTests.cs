@@ -61,6 +61,7 @@ namespace Autotests
             newInsuredpage.createNewInsured();
 
             CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(driver);
+            Facility.InitElementsOfPage(newRequest);
             newRequest.CreateNewRequestForQuote(line);
         }
 
@@ -68,16 +69,19 @@ namespace Autotests
         {
 
             InsuredPage insuredPage = new InsuredPage(driver);
+            Facility.InitElementsOfPage(insuredPage);
 
             insuredPage.GoToAddNewRequestForQuote();
 
             CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(driver);
+            Facility.InitElementsOfPage(newRequest);
             newRequest.CreateNewRequestForQuote(line);
         }
 
         static void GetXmlOfCurrentLine()
         {
             InsuredPage insuredPage = new InsuredPage(driver);
+            Facility.InitElementsOfPage(insuredPage);
 
             Checker = new XmlAccordanceChecker();
             Checker.AddPare(XmlWorker.GetXmlOfLine(driver, insuredPage));

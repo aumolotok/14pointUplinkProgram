@@ -14,11 +14,9 @@ namespace Autotests.PageOdjects
     {
         [ConstractBy(How.ClassName, "add-new-insured-link")]
         public Button AddNewButton { get; private set; }
-        //By addNewButtonLocator = By.ClassName("add-new-insured-link");
 
         public AllInsuredsPage(IWebDriver driver) : base(driver)
         {
-            //AddNewButton = new Button(driver, addNewButtonLocator);
         }
 
         public void GoToCreatingNewInsured()

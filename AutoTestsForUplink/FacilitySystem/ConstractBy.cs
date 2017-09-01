@@ -20,8 +20,12 @@ namespace Autotests.FacilitySystem
             Context = context;
             Locator = GetLocator(how, Context);
         }
+        public ConstractBy(By locator)
+        {
+            Locator = locator;
+        }
 
-        private By GetLocator(How how, string context)
+        protected By GetLocator(How how, string context)
         {
             switch (how)
             {

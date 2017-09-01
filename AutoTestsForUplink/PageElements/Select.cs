@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autotests.PageOdjects;
+using System.Reflection;
 
 namespace Autotests.PageElements
 {
@@ -19,10 +20,14 @@ namespace Autotests.PageElements
             Options = driver.FindElements(OptionsLocator).ToList();
         }
 
-
         public Select(IWebDriver driver, By locator, By optionsLocator) : base(driver, locator)
         {
             OptionsLocator = optionsLocator;
+        }
+
+        public Select(IWebDriver driver,By locator) : base(driver,locator)
+        {
+
         }
 
         public IWebElement OptionSearch(string searchText)
@@ -37,6 +42,11 @@ namespace Autotests.PageElements
         {
             GetAllOptions(sender.Driver);
             OptionSearch(optionText).Click();
+        }
+
+        private void GetOptionLocator()
+        {
+            Type currentType = typeof(Select);
         }
     }
 }

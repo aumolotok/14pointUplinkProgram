@@ -14,16 +14,13 @@ namespace Autotests.PageOdjects
     {
         [ConstractBy(How.Id,"Name")]
         public TextField InsuredName { get; private set; }
-        //By insuredNameLocator = By.Id("Name");
 
         [ConstractBy(How.CssSelector, "input[value=\"Continue\"]")]
         public Button Continue { get; private set; }
-        //By ContinueLocator = By.CssSelector("input[value=\"Continue\"]");
 
         public CreateNewInsuredPage(IWebDriver driver) : base(driver)
         {
-            //Continue = new Button(driver, ContinueLocator);
-            //InsuredName = new TextField(driver, insuredNameLocator);
+
         }
 
         public void createNewInsured()
@@ -31,6 +28,5 @@ namespace Autotests.PageOdjects
             InsuredName.InsertText("NameOne");
             Continue.Click();
         }
-
     }
 }
