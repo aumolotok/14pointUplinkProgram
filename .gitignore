@@ -6,3 +6,5 @@ Config\.xml
 /AutoTestsForUplink/bin
 /AutoTestsForUplink/obj
 14pointUplinkProgram\.rar
+
+AutoTestsForUplink/App\.config
