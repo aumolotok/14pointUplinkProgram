@@ -24,11 +24,6 @@ namespace Autotests.PageOdjects
         public LoginPage(IWebDriver driver) : base(driver)
         {
         }
-        public void LogInToSystem(string login, string password)
-        {
-            EmailField.InsertText(login);
-            PasswordField.InsertText(password);
-            SignIn.Click();
-        }
+
     }
 }

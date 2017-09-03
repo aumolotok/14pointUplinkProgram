@@ -18,10 +18,5 @@ namespace Autotests.PageOdjects
         public AllInsuredsPage(IWebDriver driver) : base(driver)
         {
         }
-
-        public void GoToCreatingNewInsured()
-        {
-            AddNewButton.Click();
-        }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Autotests.PageElements;
 using Autotests.FacilitySystem;
 using OpenQA.Selenium.Support.PageObjects;
+using Autotests.PageObjects;
 
 namespace Autotests.PageOdjects
 {

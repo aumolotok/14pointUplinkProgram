@@ -21,11 +21,5 @@ namespace Autotests.PageOdjects
         public CreateNewInsuredPage(IWebDriver driver) : base(driver)
         {
         }
-
-        public void createNewInsured()
-        {
-            InsuredName.InsertText("NameOne");
-            Continue.Click();
-        }
     }
 }

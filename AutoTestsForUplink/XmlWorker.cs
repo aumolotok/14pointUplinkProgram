@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using Autotests.PageOdjects;
+using Autotests.PageObjects;
 
 namespace Autotests
 {
