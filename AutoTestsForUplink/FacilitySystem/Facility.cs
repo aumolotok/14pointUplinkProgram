@@ -16,11 +16,8 @@ using Autotests.FacilitySystem;
 
 namespace Autotests
 {
-    [TestFixture]
     static class Facility
-    {
-        [Test]
-            
+    {             
         public static void InitElementsOfPage(BasePage Page)
         {
             List<PropertyInfo> allproperty = Page.GetType().GetProperties().ToList();
