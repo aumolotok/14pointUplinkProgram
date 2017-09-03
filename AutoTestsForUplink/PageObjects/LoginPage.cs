@@ -25,11 +25,6 @@ namespace Autotests.PageOdjects
             PasswordField = new TextField(driver, passwordFieldLocator);
             SignIn = new Button(driver, signInLocation);
         }
-        public void LogInToSystem(string login, string password)
-        {
-            EmailField.InsertText(login);
-            PasswordField.InsertText(password);
-            SignIn.Click();
-        }
+
     }
 }

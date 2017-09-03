@@ -17,10 +17,5 @@ namespace Autotests.PageOdjects
         {
             AddNewButton = new Button(driver, addNewButtonLocator);
         }
-
-        public void GoToCreatingNewInsured()
-        {
-            AddNewButton.Click();
-        }
     }
 }
