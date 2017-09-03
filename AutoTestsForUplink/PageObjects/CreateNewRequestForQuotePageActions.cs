@@ -14,7 +14,6 @@ namespace Autotests.PageObjects
             Page.LineSelect.ChooseOption(Page, lineType);
             Page.Continue.Click();
             Waitor.WaitUntilEementDisappear(Page.Driver, Page.Continue);
-            int intt = 5;
         }
     }
 }

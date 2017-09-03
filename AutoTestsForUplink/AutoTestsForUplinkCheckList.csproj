@@ -97,6 +97,7 @@
     <Compile Include="PageElements\IDropDown.cs" />
     <Compile Include="PageElements\IFillable.cs" />
     <Compile Include="PageObjects\InsuredPage.cs" />
+    <Compile Include="PageObjects\InsuredPageActions.cs" />
     <Compile Include="PageObjects\LoginPage.cs" />
     <Compile Include="PageObjects\BasePage.cs" />
     <Compile Include="PageObjects\LoginPageActions.cs" />

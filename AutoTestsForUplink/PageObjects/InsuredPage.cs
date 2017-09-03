@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Autotests.PageElements;
+using Autotests.PageObjects;
 
 namespace Autotests.PageOdjects
 {
@@ -28,16 +29,6 @@ namespace Autotests.PageOdjects
             InsuranceTypes = new Select(driver, insuredTypeSelect, insuredTypeOptionsLocator);
             AdditionalFunctionsQuestionnaireSelect = new Select(driver, additionalFunctionsQuestionnaireSelectLoator, additionalFunctionsQuestionnaireSelectOptionsLocator);
             PolicyInsuranceType = new BaseElement(driver, policyTypeFieldLocator).GetText();
-        }
-
-        public void getXML()
-        {
-            AdditionalFunctionsQuestionnaireSelect.ChooseOption(this, "Get");
-        }
-
-        public void GoToAddNewRequestForQuote()
-        {
-            InsuranceTypes.ChooseOption(this, "New");
         }
     }
 }
