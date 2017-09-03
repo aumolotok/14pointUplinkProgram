@@ -17,13 +17,6 @@ namespace Autotests.PageOdjects
         public Button Continue { get; }
         private By continueLocator = By.XPath("//div/button[text() =\"Continue\"]");
 
-        public void CreateNewRequestForQuote(string lineType)
-        {
-            LineSelect.ChooseOption(this, lineType);
-            Continue.Click();
-            Waitor.WaitUntilEementDisappear(Driver, Continue);
-        }
-
         public CreateNewRequestForQuotePage(IWebDriver driver) : base(driver)
         {
             LineSelect = new Select(driver, lineSelectLocator, lineSelectOptionsLocator);
