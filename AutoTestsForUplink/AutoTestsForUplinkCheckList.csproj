@@ -91,6 +91,7 @@
     <Compile Include="PageObjects\AllInsuredPage.cs" />
     <Compile Include="PageObjects\AllInsuredsPageActions.cs" />
     <Compile Include="PageObjects\CreateNewInsuredPage.cs" />
+    <Compile Include="PageObjects\CreateNewInsuredPageActions.cs" />
     <Compile Include="PageObjects\CreateNewRquestForQoutePage.cs" />
     <Compile Include="PageElements\IDropDown.cs" />
     <Compile Include="PageElements\IFillable.cs" />
