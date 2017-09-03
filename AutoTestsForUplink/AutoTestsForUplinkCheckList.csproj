@@ -96,6 +96,7 @@
     <Compile Include="PageObjects\InsuredPage.cs" />
     <Compile Include="PageObjects\LoginPage.cs" />
     <Compile Include="PageObjects\BasePage.cs" />
+    <Compile Include="PageObjects\LoginPageActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UplinkInsuranceLineAndXmlAccordanceTests.cs" />
     <Compile Include="Waitor.cs" />

@@ -22,7 +22,7 @@ namespace Autotests
             {
                 if ((bool) script.ExecuteScript("return window.$ != undefined"))
                 {
-                    for (int j = 0; i < 100; i++)
+                    for (int j = 0; j < 100; j++)
                     {
                         if ((bool)script.ExecuteScript("return $.active == 0"))
                         {
