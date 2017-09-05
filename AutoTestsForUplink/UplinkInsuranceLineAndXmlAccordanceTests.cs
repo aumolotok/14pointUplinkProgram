@@ -13,12 +13,12 @@ using Autotests.PageObjects;
 namespace Autotests
 {
    [TestFixture]
-    static class UplinkInsuranceLineAndXmlAccordanceTests
+    class UplinkInsuranceLineAndXmlAccordanceTests
     {
         static IWebDriver driver;
         static XmlAccordanceChecker Checker;
        [Test]
-        public static void InsuranceLineAndXmlAccordanceCheck()
+        public void InsuranceLineAndXmlAccordanceCheck()
         {
             LogIntoSystem();
 
@@ -33,7 +33,8 @@ namespace Autotests
             Assert.IsTrue(SumUpResults());
         }
 
-        static UplinkInsuranceLineAndXmlAccordanceTests()
+        [SetUp]
+        public void Init()
         {
             driver = new FirefoxDriver();
             TimeSpan time = new TimeSpan(0, 0, 50);
@@ -42,6 +43,12 @@ namespace Autotests
             driver.Url = Configurator.GetUrl();
 
             Checker = new XmlAccordanceChecker();
+        }
+
+        [TearDown]
+        public void CleanUp()
+        {
+            driver.Quit();
         }
 
         static public void LogIntoSystem()
@@ -87,8 +94,6 @@ namespace Autotests
 
         static bool SumUpResults()
         {
-            driver.Quit();
-
             Checker.LineXmlTest();
 
             return Checker.CheckPares();

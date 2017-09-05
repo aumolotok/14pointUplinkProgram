@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Autotests.PageElements
 {
-    public interface IClicable
+    public interface IClickable
     {
         void Click();
     }

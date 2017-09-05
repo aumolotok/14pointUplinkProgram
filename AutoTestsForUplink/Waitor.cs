@@ -42,7 +42,7 @@ namespace Autotests
             }
         }
 
-        public static void WaitUntilEementDisappear(IWebDriver driver, ICustomElement element)
+        public static void WaitUntilEementDisappear(IWebDriver driver, BaseElement element)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             wait.Until(ExpectedConditions.StalenessOf(element.RootElement));

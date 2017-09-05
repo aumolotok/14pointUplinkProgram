@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Autotests.PageElements
 {
-    class InteractiveElement : BaseElement, IClicable
+    class InteractiveElement : BaseElement, IClickable
     {
         public void Click()
         {
