@@ -58,8 +58,7 @@ namespace Autotests
         }
 
         static void CreateNewInsured(string line)
-        {
-            
+        {            
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
             allInsuredPage.GoToCreatingNewInsured();
 
@@ -72,7 +71,6 @@ namespace Autotests
 
         static void CreateNewRequestForQuote(string line)
         {
-
             InsuredPage insuredPage = new InsuredPage(driver);
 
             insuredPage.GoToAddNewRequestForQuote();

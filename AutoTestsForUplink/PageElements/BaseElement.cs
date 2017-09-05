@@ -18,15 +18,9 @@ namespace Autotests.PageElements
             return RootElement.Text;
         }
 
-        private IWebElement WaitVisibility(IWebDriver driver, By locator, int seconds = 30)
-        {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
-            return (wait.Until(ExpectedConditions.ElementIsVisible(locator)));
-        }
-
         public BaseElement(IWebDriver driver, By locator)
         {
-            RootElement = WaitVisibility(driver, locator);
+            RootElement = Waitings.WaitVisibility(driver, locator);
         }
     }
 }

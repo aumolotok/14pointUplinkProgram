@@ -12,7 +12,7 @@ using Autotests.PageOdjects;
 
 namespace Autotests
 {
-    static class Waitor
+    static class Waitings
     {
         public static void WaitForScript(IWebDriver driver)
         {
@@ -47,7 +47,6 @@ namespace Autotests
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             wait.Until(ExpectedConditions.StalenessOf(element.RootElement));
         }
-
         public static void WaitForXmlReady(IWebDriver driver)
         {
             IJavaScriptExecutor script = (IJavaScriptExecutor)driver;
@@ -63,6 +62,12 @@ namespace Autotests
                     Thread.Sleep(1);
                 }
             } 
+        }
+
+        public static  IWebElement WaitVisibility(IWebDriver driver, By locator, int seconds = 30)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            return (wait.Until(ExpectedConditions.ElementIsVisible(locator)));
         }
     }
 }

@@ -8,7 +8,7 @@ using Autotests.PageOdjects;
 
 namespace Autotests.PageElements
 {
-    class Select : InteractiveElement, IDropDown
+    class Select : InteractiveElement //, IDropDown
     {
         public List<IWebElement> Options { get; set; }
         public By OptionsLocator { get; set; } 

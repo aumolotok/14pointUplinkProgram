@@ -28,7 +28,7 @@ namespace Autotests
                 if (driver.Url.Contains(@"acordxml"))
                 { break; }
             }
-            Waitor.WaitForXmlReady(driver);
+            Waitings.WaitForXmlReady(driver);
         }
 
         static public XmlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)

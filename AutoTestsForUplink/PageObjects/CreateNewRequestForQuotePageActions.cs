@@ -13,7 +13,7 @@ namespace Autotests.PageObjects
         {
             Page.LineSelect.ChooseOption(Page, lineType);
             Page.Continue.Click();
-            Waitor.WaitUntilEementDisappear(Page.Driver, Page.Continue);
+            Waitings.WaitUntilEementDisappear(Page.Driver, Page.Continue);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Autotests.PageOdjects
 
         public InsuredPage(IWebDriver driver) : base(driver)
         {
-            Waitor.WaitForScript(driver);
+            Waitings.WaitForScript(driver);
             InsuranceTypes = new Select(driver, insuredTypeSelect, insuredTypeOptionsLocator);
             AdditionalFunctionsQuestionnaireSelect = new Select(driver, additionalFunctionsQuestionnaireSelectLoator, additionalFunctionsQuestionnaireSelectOptionsLocator);
             PolicyInsuranceType = new BaseElement(driver, policyTypeFieldLocator).GetText();
