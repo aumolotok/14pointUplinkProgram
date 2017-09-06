@@ -14,7 +14,7 @@ namespace Autotests.PageElements
             RootElement.Click();
         }
 
-        public InteractiveElement(IWebDriver driver, By locator) : base(driver, locator)
+        public InteractiveElement(Browser browser, By locator) : base(browser, locator)
         {
         }
 

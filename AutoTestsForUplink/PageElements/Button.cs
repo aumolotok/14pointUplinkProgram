@@ -9,7 +9,7 @@ namespace Autotests.PageElements
 {
     class Button : InteractiveElement
     {
-        public Button(IWebDriver driver, By locator) : base(driver, locator)
+        public Button(Browser browser, By locator) : base(browser, locator)
         {
         }
     }

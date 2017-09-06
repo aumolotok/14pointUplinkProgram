@@ -18,9 +18,9 @@ namespace Autotests.PageElements
             return RootElement.Text;
         }
 
-        public BaseElement(IWebDriver driver, By locator)
+        public BaseElement(Browser browser, By locator)
         {
-            RootElement = Waitings.WaitClickability(driver, locator);
+            RootElement = browser.FindElement(locator);
         }
     }
 }

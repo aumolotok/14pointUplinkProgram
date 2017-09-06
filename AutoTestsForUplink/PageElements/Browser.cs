@@ -10,7 +10,7 @@ namespace Autotests.PageElements
 {
     class Browser
     {
-        private IWebDriver Driver { get; set; }
+        public IWebDriver Driver { get; set; }
 
         public IWebElement FindElement(By locator)
         {
@@ -21,7 +21,7 @@ namespace Autotests.PageElements
         {
             if (Driver == null)
             {
-                Driver = new FirefoxDriver();
+                Driver = new FirefoxDriver(); //Hack
             }
 
             Driver.Url = Configurator.GetUrl();
@@ -41,6 +41,11 @@ namespace Autotests.PageElements
         public void CloseCurrentTab()
         {
             Driver.Close();
+        }
+
+        public string GetCurentUrl()
+        {
+            return Driver.Url;
         }
     }
 }

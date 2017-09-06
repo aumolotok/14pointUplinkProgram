@@ -20,7 +20,7 @@ namespace Autotests.PageElements
         }
 
 
-        public Select(IWebDriver driver, By locator, By optionsLocator) : base(driver, locator)
+        public Select(Browser browser, By locator, By optionsLocator) : base(browser, locator)
         {
             OptionsLocator = optionsLocator;
         }
