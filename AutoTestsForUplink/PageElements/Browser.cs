@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,32 @@ namespace Autotests.PageElements
         public IWebElement FindElement(By locator)
         {
             return Waitings.WaitClickability(Driver, locator);
+        }
+
+        public void OpenPage(string url)
+        {
+            if (Driver == null)
+            {
+                Driver = new FirefoxDriver();
+            }
+
+            Driver.Url = Configurator.GetUrl();
+            Driver.Manage().Window.Maximize();
+        }
+   
+        public Browser()
+        {
+            Driver = new FirefoxDriver();
+        }
+
+        public void CloseAll()
+        {
+            Driver.Quit();
+        }
+
+        public void CloseCurrentTab()
+        {
+            Driver.Close();
         }
     }
 }
