@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Autotests.PageElements;
-using Autotests.PageElements;
 using Autotests.PageOdjects;
 
 namespace Autotests
@@ -65,10 +64,10 @@ namespace Autotests
             } 
         }
 
-        public static  IWebElement WaitVisibility(IWebDriver driver, By locator, int seconds = 30)
+        public static  IWebElement WaitClickability(IWebDriver driver, By locator, int seconds = 30)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
-            return (wait.Until(ExpectedConditions.ElementIsVisible(locator)));
+            return (wait.Until(ExpectedConditions.ElementToBeClickable(locator)));
         }
     }
 }

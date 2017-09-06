@@ -20,7 +20,7 @@ namespace Autotests.PageElements
 
         public BaseElement(IWebDriver driver, By locator)
         {
-            RootElement = Waitings.WaitVisibility(driver, locator);
+            RootElement = Waitings.WaitClickability(driver, locator);
         }
     }
 }
