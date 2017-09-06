@@ -13,7 +13,7 @@ namespace Autotests.PageElements
 
         public IWebElement FindElement(By locator)
         {
-            return
+            return Waitings.WaitClickability(Driver, locator);
         }
     }
 }
