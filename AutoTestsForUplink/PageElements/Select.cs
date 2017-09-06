@@ -13,10 +13,10 @@ namespace Autotests.PageElements
         public List<IWebElement> Options { get; set; }
         public By OptionsLocator { get; set; } 
 
-        public void GetAllOptions(IWebDriver driver)
+        public List<IWebElement> GetAllOptions(BasePage Page)
         {
             Click();
-            Options = driver.FindElements(OptionsLocator).ToList();
+            return Page.Driver.FindElements(OptionsLocator).ToList();
         }
 
 
@@ -25,18 +25,26 @@ namespace Autotests.PageElements
             OptionsLocator = optionsLocator;
         }
 
-        public IWebElement OptionSearch(string searchText)
+        public IWebElement OptionSearch(string searchText, List <IWebElement> options)
         {
-            IEnumerable<IWebElement> result = from element in Options
-                                              where element.Text.Contains(searchText)
-                                              select element;
-            return result.First();
+            IEnumerable<IWebElement> opportune = from element in options
+                                                 where element.Text.Contains(searchText)
+                                                 select element;
+            List<IWebElement> result = opportune.ToList();  // HACK: решить проблему
+
+            if (result.Count > 0)
+            { 
+                return result.First();
+            }
+            else
+            {
+                throw new NoSuchElementException("No such option");  // TODO сделать подходящий Exeption
+            }
         }
 
         public void ChooseOption(BasePage sender, string optionText)
         {
-            GetAllOptions(sender.Driver);
-            OptionSearch(optionText).Click();
+                OptionSearch(optionText, GetAllOptions(sender)).Click();                 
         }
     }
 }

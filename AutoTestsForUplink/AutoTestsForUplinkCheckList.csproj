@@ -85,7 +85,6 @@
     <Compile Include="PageElements\BaseElement.cs" />
     <Compile Include="PageElements\Button.cs" />
     <Compile Include="PageElements\IClicable.cs" />
-    <Compile Include="PageElements\ICustomElement.cs" />
     <Compile Include="PageElements\Select.cs" />
     <Compile Include="PageElements\TextField.cs" />
     <Compile Include="PageObjects\AllInsuredPage.cs" />
@@ -94,8 +93,6 @@
     <Compile Include="PageObjects\CreateNewInsuredPageActions.cs" />
     <Compile Include="PageObjects\CreateNewRequestForQuotePageActions.cs" />
     <Compile Include="PageObjects\CreateNewRquestForQoutePage.cs" />
-    <Compile Include="PageElements\IDropDown.cs" />
-    <Compile Include="PageElements\IFillable.cs" />
     <Compile Include="PageObjects\InsuredPage.cs" />
     <Compile Include="PageObjects\InsuredPageActions.cs" />
     <Compile Include="PageObjects\LoginPage.cs" />
@@ -103,7 +100,7 @@
     <Compile Include="PageObjects\LoginPageActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UplinkInsuranceLineAndXmlAccordanceTests.cs" />
-    <Compile Include="Waitor.cs" />
+    <Compile Include="Waitings.cs" />
     <Compile Include="XmlAccordance.cs" />
     <Compile Include="XmlAccordanceChecker.cs" />
     <Compile Include="XmlWorker.cs" />

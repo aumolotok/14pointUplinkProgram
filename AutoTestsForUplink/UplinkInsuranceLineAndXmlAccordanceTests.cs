@@ -26,7 +26,7 @@ namespace Autotests
 
             GetXmlOfCurrentLine();
 
-            CreateNewRequestForQuote("Workers");
+            CreateNewRequestForQuote("zzzzzz");
 
             GetXmlOfCurrentLine();
 

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Autotests.PageElements;
-using Autotests.PageElements.Intefaces;
+using Autotests.PageElements;
 using Autotests.PageOdjects;
 
 namespace Autotests
@@ -47,6 +47,7 @@ namespace Autotests
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             wait.Until(ExpectedConditions.StalenessOf(element.RootElement));
         }
+
         public static void WaitForXmlReady(IWebDriver driver)
         {
             IJavaScriptExecutor script = (IJavaScriptExecutor)driver;
