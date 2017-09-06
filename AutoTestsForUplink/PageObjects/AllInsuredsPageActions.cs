@@ -12,6 +12,7 @@ namespace Autotests.PageObjects
         static public void GoToCreatingNewInsured(this AllInsuredsPage Page)
         {
             Page.AddNewButton.Click();
+            //CreateNewInsuredPage newInsuredPage = new CreateNewInsuredPage(Page)
         }
     }
 }

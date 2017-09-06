@@ -83,6 +83,7 @@
     <Compile Include="Configurator.cs" />
     <Compile Include="PageElements\ActiveElement.cs" />
     <Compile Include="PageElements\BaseElement.cs" />
+    <Compile Include="PageElements\Browser.cs" />
     <Compile Include="PageElements\Button.cs" />
     <Compile Include="PageElements\IClicable.cs" />
     <Compile Include="PageElements\Select.cs" />
