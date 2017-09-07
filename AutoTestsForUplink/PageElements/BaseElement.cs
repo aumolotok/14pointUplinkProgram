@@ -13,9 +13,9 @@ namespace Autotests.PageElements
     {
         public IWebElement RootElement { get; }
 
-        public virtual string GetText()
+        public virtual string GetInnerText()
         {
-            return RootElement.Text;
+            return null; 
         }
 
         public BaseElement(Browser browser, By locator)

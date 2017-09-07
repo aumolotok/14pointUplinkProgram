@@ -9,10 +9,10 @@ namespace Autotests.PageObjects
 {
     static class AllInsuredsPageActions
     {
-        static public void GoToCreatingNewInsured(this AllInsuredsPage Page)
+        static public CreateNewInsuredPage GoToCreatingNewInsured(this AllInsuredsPage Page)
         {
             Page.AddNewButton.Click();
-            //CreateNewInsuredPage newInsuredPage = new CreateNewInsuredPage(Page)
+            return new CreateNewInsuredPage(Page.Browser);
         }
     }
 }

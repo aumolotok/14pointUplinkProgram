@@ -81,12 +81,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurator.cs" />
-    <Compile Include="PageElements\ActiveElement.cs" />
+    <Compile Include="PageElements\InteractiveElement.cs" />
     <Compile Include="PageElements\BaseElement.cs" />
     <Compile Include="PageElements\Browser.cs" />
     <Compile Include="PageElements\Button.cs" />
     <Compile Include="PageElements\IClicable.cs" />
     <Compile Include="PageElements\Select.cs" />
+    <Compile Include="PageElements\TextDiv.cs" />
     <Compile Include="PageElements\TextField.cs" />
     <Compile Include="PageObjects\AllInsuredPage.cs" />
     <Compile Include="PageObjects\AllInsuredsPageActions.cs" />

@@ -12,7 +12,7 @@ namespace Autotests.PageOdjects
     class InsuredPage : BasePage
     {
         public string PolicyInsuranceType { get; set; }
-        public BaseElement PolicyTypeField { get; }
+        public TextDiv PolicyTypeField { get; }
         private By policyTypeFieldLocator = By.CssSelector("div.policy-insurance-type");
 
         public Select InsuranceTypes { get; }
@@ -28,7 +28,7 @@ namespace Autotests.PageOdjects
             Waitings.WaitForScript(browser);
             InsuranceTypes = new Select(browser, insuredTypeSelect, insuredTypeOptionsLocator);
             AdditionalFunctionsQuestionnaireSelect = new Select(browser, additionalFunctionsQuestionnaireSelectLoator, additionalFunctionsQuestionnaireSelectOptionsLocator);
-            PolicyInsuranceType = new BaseElement(browser, policyTypeFieldLocator).GetText();
+            PolicyInsuranceType = new TextDiv(browser, policyTypeFieldLocator).GetInnerText();
         }
     }
 }

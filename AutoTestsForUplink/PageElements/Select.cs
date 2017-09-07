@@ -10,7 +10,6 @@ namespace Autotests.PageElements
 {
     class Select : InteractiveElement
     {
-        public List<IWebElement> Options { get; set; }
         public By OptionsLocator { get; set; } 
 
         public List<IWebElement> GetAllOptions(BasePage Page)
@@ -19,29 +18,25 @@ namespace Autotests.PageElements
             return Page.Browser.FindElements(OptionsLocator).ToList();
         }
 
-
         public Select(Browser browser, By locator, By optionsLocator) : base(browser, locator)
         {
             OptionsLocator = optionsLocator;
         }
 
-        public IWebElement OptionSearch(string searchText, List <IWebElement> options)
+        public void ChooseOption(BasePage sender, string optionText)
         {
-            var result = options.Where(o => o.Text.Contains(searchText)).ToList();
+            List<IWebElement> options = GetAllOptions(sender);
+     
+            var result = options.Where(o => o.Text.Contains(optionText)).ToList();
 
             if (result.Any())
-            { 
-                return result.First();
+            {
+                result.First().Click();
             }
             else
             {
                 throw new NoSuchElementException("No such option");  // TODO сделать подходящий Exeption
             }
-        }
-
-        public void ChooseOption(BasePage sender, string optionText)
-        {
-                OptionSearch(optionText, GetAllOptions(sender)).Click();                 
         }
     }
 }

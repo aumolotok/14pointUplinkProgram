@@ -16,8 +16,9 @@ namespace Autotests
    [TestFixture]
     class UplinkInsuranceLineAndXmlAccordanceTests
     {
-        public static Browser browser;
-        XmlAccordanceChecker Checker = new XmlAccordanceChecker();
+        public  Browser browser;
+        public XmlAccordanceChecker Checker = new XmlAccordanceChecker();
+
        [Test]
         public void InsuranceLineAndXmlAccordanceCheck()
         {
@@ -39,7 +40,6 @@ namespace Autotests
         {
             browser = new Browser();
             browser.OpenPage(Configurator.GetUrl());
-
             Checker = new XmlAccordanceChecker();
         }
 
@@ -58,9 +58,9 @@ namespace Autotests
         void CreateNewInsured(string insuredName, string line)
         {            
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(browser);
-            allInsuredPage.GoToCreatingNewInsured();
+            
 
-            CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(browser);
+            CreateNewInsuredPage newInsuredpage = allInsuredPage.GoToCreatingNewInsured();
             newInsuredpage.createNewInsured(insuredName);
 
             CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
