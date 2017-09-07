@@ -9,39 +9,39 @@ using System.Reflection;
 
 namespace Autotests.PageElements
 {
-    class Select : InteractiveElement, IDropDown
+    class Select : InteractiveElement
     {
-        public List<IWebElement> Options { get; set; }
         public By OptionsLocator { get; set; } 
 
-        public void GetAllOptions(IWebDriver driver)
+        public List<IWebElement> GetAllOptions(BasePage Page)
         {
             Click();
-            Options = driver.FindElements(OptionsLocator).ToList();
+            return Page.Browser.FindElements(OptionsLocator).ToList();
         }
 
-        public Select(IWebDriver driver, By locator, By optionsLocator) : base(driver, locator)
+        public Select(Browser browser, By locator, By optionsLocator) : base(browser, locator)
         {
             OptionsLocator = optionsLocator;
         }
 
         public Select(IWebDriver driver,By locator) : base(driver,locator)
-        {
 
         }
-
-        public IWebElement OptionSearch(string searchText)
         {
-            IEnumerable<IWebElement> result = from element in Options
-                                              where element.Text.Contains(searchText)
-                                              select element;
-            return result.First();
-        }
-
         public void ChooseOption(BasePage sender, string optionText)
         {
-            GetAllOptions(sender.Driver);
-            OptionSearch(optionText).Click();
+            List<IWebElement> options = GetAllOptions(sender);
+     
+            var result = options.Where(o => o.Text.Contains(optionText)).ToList();
+
+            if (result.Any())
+            {
+                result.First().Click();
+            }
+            else
+            {
+                throw new NoSuchElementException("No such option");  // TODO сделать подходящий Exeption
+            }
         }
 
         private void GetOptionLocator()

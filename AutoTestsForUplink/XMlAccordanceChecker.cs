@@ -8,33 +8,33 @@ namespace Autotests
 {
     class XmlAccordanceChecker
     {
-        private List<XmlAccordance> PareList = new List<XmlAccordance>();
+        private List<XmlAccordance> PairList = new List<XmlAccordance>();
 
-        public void AddPare(XmlAccordance accordance)
+        public void AddPair(XmlAccordance accordance)
         {
-            PareList.Add(accordance);
+            PairList.Add(accordance);
         }
 
         public void LineXmlTest()
         {
-            foreach (XmlAccordance Pare in PareList)
+            foreach (XmlAccordance Pair in PairList)
             {
                 foreach (var e in XmlWorker.TagToLines)
                 {
-                    if (Pare.InsuranceType == e.Key && Pare.Xml.Contains(e.Value))
+                    if (Pair.InsuranceType == e.Key && Pair.Xml.Contains(e.Value))
                     {
-                        Pare.isCorrect = true;
+                        Pair.isCorrect = true;
                     }
                 }
-                Pare.wasChecked = true;
+                Pair.wasChecked = true;
             }
         }
 
         public bool CheckPares()
         {
-            foreach (var p in PareList)
+            foreach (var p in PairList)
             {
-                if ((p.wasChecked == false) | (p.isCorrect == false))
+                if ((p.wasChecked == false) || (p.isCorrect == false))
                 {
                     return false;
                 }

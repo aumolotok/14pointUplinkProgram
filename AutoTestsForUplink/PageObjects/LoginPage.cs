@@ -21,9 +21,8 @@ namespace Autotests.PageOdjects
         [ConstractBy(How.ClassName, "signin-button")]
         public Button SignIn { get; private set; }
 
-        public LoginPage(IWebDriver driver) : base(driver)
+        public LoginPage(Browser browser) : base(browser)
         {
         }
-
     }
 }

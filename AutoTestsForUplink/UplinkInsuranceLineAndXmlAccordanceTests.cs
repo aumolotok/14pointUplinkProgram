@@ -9,20 +9,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Autotests.PageObjects;
+using Autotests.PageElements;
 
 namespace Autotests
 {
    [TestFixture]
-    static class UplinkInsuranceLineAndXmlAccordanceTests
+    class UplinkInsuranceLineAndXmlAccordanceTests
     {
-        static IWebDriver driver;
-        static XmlAccordanceChecker Checker;
+        public  Browser browser;
+        public XmlAccordanceChecker Checker = new XmlAccordanceChecker();
+
        [Test]
-        public static void InsuranceLineAndXmlAccordanceCheck()
+        public void InsuranceLineAndXmlAccordanceCheck()
         {
             LogIntoSystem();
 
-            CreateNewInsured("General");
+            CreateNewInsured("InsuredName","General");
 
             GetXmlOfCurrentLine();
 
@@ -33,72 +35,71 @@ namespace Autotests
             Assert.IsTrue(SumUpResults());
         }
 
-        static UplinkInsuranceLineAndXmlAccordanceTests()
+        [SetUp]
+        public void InitTest()
         {
-            driver = new FirefoxDriver();
-            TimeSpan time = new TimeSpan(0, 0, 50);
-
-            driver.Manage().Timeouts().ImplicitWait = time;
-            driver.Url = Configurator.GetUrl();
-
+            browser = new Browser();
+            browser.OpenPage(Configurator.GetUrl());
             Checker = new XmlAccordanceChecker();
         }
 
-        static public void LogIntoSystem()
+        [TearDown]
+        public void CleanUpTest()
         {
+            browser.CloseAll();
             
-            LoginPage loginPage = new LoginPage(driver);
             Facility.InitElementsOfPage(loginPage);
+        }
+
+        public void LogIntoSystem()
+        {
+            LoginPage loginPage = new LoginPage(browser);
             loginPage.LogInToSystem(Configurator.GetEmail(), Configurator.GetPassword());
         }
 
-        static void CreateNewInsured(string line)
-        {
+        void CreateNewInsured(string insuredName, string line)
+        {            
+            AllInsuredsPage allInsuredPage = new AllInsuredsPage(browser);
             
-            AllInsuredsPage allInsuredPage = new AllInsuredsPage(driver);
             Facility.InitElementsOfPage(allInsuredPage);
             allInsuredPage.GoToCreatingNewInsured();
 
-            CreateNewInsuredPage newInsuredpage = new CreateNewInsuredPage(driver);
+            CreateNewInsuredPage newInsuredpage = allInsuredPage.GoToCreatingNewInsured();
             Facility.InitElementsOfPage(newInsuredpage);
-            newInsuredpage.createNewInsured();
+            newInsuredpage.createNewInsured(insuredName);
 
-            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(driver);
+            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
             Facility.InitElementsOfPage(newRequest);
             newRequest.CreateNewRequestForQuote(line);
         }
 
-        static void CreateNewRequestForQuote(string line)
+        void CreateNewRequestForQuote(string line)
         {
+            InsuredPage insuredPage = new InsuredPage(browser);
 
-            InsuredPage insuredPage = new InsuredPage(driver);
             Facility.InitElementsOfPage(insuredPage);
-
             insuredPage.GoToAddNewRequestForQuote();
 
-            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(driver);
+            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
             Facility.InitElementsOfPage(newRequest);
             newRequest.CreateNewRequestForQuote(line);
         }
 
-        static void GetXmlOfCurrentLine()
+        void GetXmlOfCurrentLine()
         {
-            InsuredPage insuredPage = new InsuredPage(driver);
+            InsuredPage insuredPage = new InsuredPage(browser);
             Facility.InitElementsOfPage(insuredPage);
 
-            Checker.AddPare(XmlWorker.GetXmlOfLine(driver, insuredPage));
-            driver.Close();
+            Checker.AddPair(XmlWorker.GetXmlOfLine(browser, insuredPage));
+            browser.CloseCurrentTab();
 
-            List<string> handlerList = driver.WindowHandles.ToList();
-            driver.SwitchTo().Window(handlerList[0]);
+            List<string> handlerList = browser.Driver.WindowHandles.ToList();
+            browser.Driver.SwitchTo().Window(handlerList[0]);
         }
 
-        static bool SumUpResults()
+        bool SumUpResults()
         {
-            driver.Quit();
-
             Checker.LineXmlTest();
-
             return Checker.CheckPares();
         }
     }

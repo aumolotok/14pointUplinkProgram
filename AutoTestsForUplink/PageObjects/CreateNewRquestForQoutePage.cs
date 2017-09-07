@@ -18,7 +18,7 @@ namespace Autotests.PageOdjects
         [ConstractBy(How.XPath, "//div/button[text() =\"Continue\"]")]
         public Button Continue { get; private set; }
 
-        public CreateNewRequestForQuotePage(IWebDriver driver) : base(driver)
+        public CreateNewRequestForQuotePage(Browser browser) : base(browser)
         {
 
         }

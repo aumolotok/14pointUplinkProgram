@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
+using Autotests.PageElements;
 
 namespace Autotests.PageOdjects
 {
     abstract class BasePage
     {
         public string Url { get; }
-        public IWebDriver Driver { get; }
+        public Browser Browser { get; }
 
-        public BasePage(IWebDriver driver)
+        public BasePage(Browser browser)
         {
-            Driver = driver;
-            Url = driver.Url;
+            Browser = browser;
+            Url = Browser.GetCurentUrl();
         }
     }
 }

@@ -18,6 +18,8 @@ namespace Autotests.PageOdjects
         public BaseElement PolicyTypeField { get; private set; }
 
         public string PolicyInsuranceType { get; set; }
+        public TextDiv PolicyTypeField { get; }
+        private By policyTypeFieldLocator = By.CssSelector("div.policy-insurance-type");
 
         [ConstructWithOptions(How.XPath, "//div/span[@class=\"arrow\"]",How.CssSelector, "li div.select2-result-label")]
         public Select InsuranceTypes { get; private set; }
@@ -25,7 +27,6 @@ namespace Autotests.PageOdjects
         [ConstructWithOptions(How.CssSelector, "div button[title = \"Additional functions to work with the questionnaire.\"]",How.CssSelector, "ul li.drop-down-menu-button__item")]
 
         public Select AdditionalFunctionsQuestionnaireSelect { get; private set; }
-
         public InsuredPage(IWebDriver driver) : base(driver)
         {
             Waitor.WaitForScript(driver);

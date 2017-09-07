@@ -18,7 +18,7 @@ namespace Autotests.PageOdjects
         [ConstractBy(How.CssSelector, "input[value=\"Continue\"]")]
         public Button Continue { get; private set; }
 
-        public CreateNewInsuredPage(IWebDriver driver) : base(driver)
+        public CreateNewInsuredPage(Browser browser) : base(browser)
         {
         }
     }

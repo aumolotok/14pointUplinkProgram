@@ -9,10 +9,10 @@ namespace Autotests.PageObjects
 {
     static class CreateNewInsuredPageActions
     {
-        static public void createNewInsured(this CreateNewInsuredPage Page)
+        static public void createNewInsured(this CreateNewInsuredPage page,string insuredName)
         {
-            Page.InsuredName.InsertText("NameOne");
-            Page.Continue.Click();
+            page.InsuredName.InsertText(insuredName);
+            page.Continue.Click();
         }
     }
 }

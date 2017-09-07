@@ -5,28 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Autotests.PageElements.Intefaces;
+using Autotests.PageElements;
 
 namespace Autotests.PageElements
 {
-    class BaseElement : ICustomElement
+    class BaseElement
     {
         public IWebElement RootElement { get; }
 
-        public virtual string GetText()
+        public virtual string GetInnerText()
         {
-            return RootElement.Text;
+            return null; 
         }
 
-        private IWebElement WaitVisibility(IWebDriver driver, By locator, int seconds = 30)
+        public BaseElement(Browser browser, By locator)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
-            return (wait.Until(ExpectedConditions.ElementIsVisible(locator)));
-        }
-
-        public BaseElement(IWebDriver driver, By locator)
-        {
-            RootElement = WaitVisibility(driver, locator);
+            RootElement = browser.FindElement(locator);
         }
     }
 }

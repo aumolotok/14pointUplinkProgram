@@ -7,16 +7,15 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Autotests.PageElements;
-using Autotests.PageElements.Intefaces;
 using Autotests.PageOdjects;
 
 namespace Autotests
 {
-    static class Waitor
+    static class Waitings
     {
-        public static void WaitForScript(IWebDriver driver)
+        public static void WaitForScript(Browser browser)
         {
-            IJavaScriptExecutor script = (IJavaScriptExecutor)driver;
+            IJavaScriptExecutor script = (IJavaScriptExecutor)browser.Driver;
             
             for (int i =0; i < 20 ; i++)
             {
@@ -42,15 +41,15 @@ namespace Autotests
             }
         }
 
-        public static void WaitUntilEementDisappear(IWebDriver driver, ICustomElement element)
+        public static void WaitUntilEementDisappear(IWebDriver driver, BaseElement element)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             wait.Until(ExpectedConditions.StalenessOf(element.RootElement));
         }
 
-        public static void WaitForXmlReady(IWebDriver driver)
+        public static void WaitForXmlReady(Browser browser)
         {
-            IJavaScriptExecutor script = (IJavaScriptExecutor)driver;
+            IJavaScriptExecutor script = (IJavaScriptExecutor)browser.Driver;
 
             for (int i=0; i < 2000; i++)
             {
@@ -63,6 +62,18 @@ namespace Autotests
                     Thread.Sleep(1);
                 }
             } 
+        }
+
+        public static  IWebElement WaitClickability(IWebDriver driver, By locator, int seconds = 30)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
+            return (wait.Until(ExpectedConditions.ElementToBeClickable(locator)));
+        }
+
+        public static void WaitUntilEementDisappear(Browser browser, BaseElement element)
+        {
+            WebDriverWait wait = new WebDriverWait(browser.Driver, TimeSpan.FromSeconds(20));
+            wait.Until(ExpectedConditions.StalenessOf(element.RootElement));
         }
     }
 }
