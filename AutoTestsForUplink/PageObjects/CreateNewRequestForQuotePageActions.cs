@@ -9,11 +9,11 @@ namespace Autotests.PageObjects
 {
     static class CreateNewRequestForQuotePageActions
     {
-        static public void CreateNewRequestForQuote(this CreateNewRequestForQuotePage Page, string lineType)
+        static public void CreateNewRequestForQuote(this CreateNewRequestForQuotePage page, string lineType)
         {
-            Page.LineSelect.ChooseOption(Page, lineType);
-            Page.Continue.Click();
-            Waitings.WaitUntilEementDisappear(Page.Driver, Page.Continue);
+            page.LineSelect.ChooseOption(page, lineType);
+            page.Continue.Click();
+            Waitings.WaitUntilEementDisappear(page.Driver, page.Continue);
         }
     }
 }

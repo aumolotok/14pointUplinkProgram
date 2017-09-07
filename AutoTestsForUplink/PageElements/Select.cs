@@ -8,7 +8,7 @@ using Autotests.PageOdjects;
 
 namespace Autotests.PageElements
 {
-    class Select : InteractiveElement //, IDropDown
+    class Select : InteractiveElement
     {
         public List<IWebElement> Options { get; set; }
         public By OptionsLocator { get; set; } 
@@ -19,7 +19,6 @@ namespace Autotests.PageElements
             return Page.Driver.FindElements(OptionsLocator).ToList();
         }
 
-
         public Select(IWebDriver driver, By locator, By optionsLocator) : base(driver, locator)
         {
             OptionsLocator = optionsLocator;
@@ -27,12 +26,9 @@ namespace Autotests.PageElements
 
         public IWebElement OptionSearch(string searchText, List <IWebElement> options)
         {
-            IEnumerable<IWebElement> opportune = from element in options
-                                                 where element.Text.Contains(searchText)
-                                                 select element;
-            List<IWebElement> result = opportune.ToList();  // HACK: решить проблему
+            var result = options.Where(o => o.Text.Contains(searchText)).ToList();
 
-            if (result.Count > 0)
+            if (result.Any())
             { 
                 return result.First();
             }

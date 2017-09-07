@@ -8,11 +8,10 @@ namespace Autotests
 {
     class XmlAccordance
     {
-        public string InsuranceType { get; set; }
-        public string Xml { get; set; }
-
-        public bool wasChecked = false;
-        public bool isCorrect = false;
+        public string InsuranceType { get; }
+        public string Xml { get; }
+        public bool wasChecked;
+        public bool isCorrect;
 
         public XmlAccordance(string insurance, string xml)
         {

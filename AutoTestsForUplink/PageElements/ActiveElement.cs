@@ -17,7 +17,5 @@ namespace Autotests.PageElements
         public InteractiveElement(IWebDriver driver, By locator) : base(driver, locator)
         {
         }
-
-
     }
 }
