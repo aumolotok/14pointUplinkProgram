@@ -10,18 +10,26 @@ namespace Autotests
 {
     static class Configurator
     {
-        static public string GetEmail()
+        static private string GetEmail(XDocument xdoc)
         {
-            return ConfigurationManager.AppSettings["Email"];
+            return xdoc.Element("TestConfig").Element("SignIn").Element("Email").Value;
         }
 
-        static public string GetPassword()
+        static private string GetPassword(XDocument xdoc)
         {
-            return ConfigurationManager.AppSettings["Password"];
+            return xdoc.Element("TestConfig").Element("SignIn").Element("Password").Value;
         }
         static public string GetUrl()
         {
             return ConfigurationManager.AppSettings["Stand"];
+        }
+
+        static public User GetUser()
+           
+        {
+            XDocument xdocument =  XDocument.Load(Environment.CurrentDirectory + @"Config.xml");
+            return new User(GetEmail(xdocument), GetPassword(xdocument));
+
         }
     }
 }

@@ -9,10 +9,10 @@ namespace Autotests.PageObjects
 {
     static class LoginPageActions
     {
-        static public void LogInToSystem(this LoginPage page, string login, string password)
+        static public void LogInToSystem(this LoginPage page, User user)
         {
-            page.EmailField.InsertText(login);
-            page.PasswordField.InsertText(password);
+            page.EmailField.InsertText(user.Email);
+            page.PasswordField.InsertText(user.Password);
             page.SignIn.Click();
         }
     }

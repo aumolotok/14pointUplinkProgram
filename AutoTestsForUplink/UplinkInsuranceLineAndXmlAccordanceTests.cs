@@ -52,7 +52,7 @@ namespace Autotests
         public void LogIntoSystem()
         {
             LoginPage loginPage = new LoginPage(browser);
-            loginPage.LogInToSystem(Configurator.GetEmail(), Configurator.GetPassword());
+            loginPage.LogInToSystem(Configurator.GetUser());
         }
 
         void CreateNewInsured(string insuredName, string line)
