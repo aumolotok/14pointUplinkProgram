@@ -16,10 +16,11 @@ namespace Autotests.PageElements
         public List<IWebElement> GetAllOptions(BasePage Page)
         {
             Click();
-            return Page.Driver.FindElements(OptionsLocator).ToList();
+            return Page.Browser.FindElements(OptionsLocator).ToList();
         }
 
-        public Select(IWebDriver driver, By locator, By optionsLocator) : base(driver, locator)
+
+        public Select(Browser browser, By locator, By optionsLocator) : base(browser, locator)
         {
             OptionsLocator = optionsLocator;
         }

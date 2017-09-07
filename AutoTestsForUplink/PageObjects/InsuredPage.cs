@@ -23,12 +23,12 @@ namespace Autotests.PageOdjects
         private By additionalFunctionsQuestionnaireSelectLoator = By.CssSelector("div button[title = \"Additional functions to work with the questionnaire.\"]");
         private By additionalFunctionsQuestionnaireSelectOptionsLocator = By.CssSelector("ul li.drop-down-menu-button__item");
 
-        public InsuredPage(IWebDriver driver) : base(driver)
+        public InsuredPage(Browser browser) : base(browser)
         {
-            Waitings.WaitForScript(driver);
-            InsuranceTypes = new Select(driver, insuredTypeSelect, insuredTypeOptionsLocator);
-            AdditionalFunctionsQuestionnaireSelect = new Select(driver, additionalFunctionsQuestionnaireSelectLoator, additionalFunctionsQuestionnaireSelectOptionsLocator);
-            PolicyInsuranceType = new BaseElement(driver, policyTypeFieldLocator).GetText();
+            Waitings.WaitForScript(browser);
+            InsuranceTypes = new Select(browser, insuredTypeSelect, insuredTypeOptionsLocator);
+            AdditionalFunctionsQuestionnaireSelect = new Select(browser, additionalFunctionsQuestionnaireSelectLoator, additionalFunctionsQuestionnaireSelectOptionsLocator);
+            PolicyInsuranceType = new BaseElement(browser, policyTypeFieldLocator).GetText();
         }
     }
 }

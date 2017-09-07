@@ -13,9 +13,9 @@ namespace Autotests
 {
     static class Waitings
     {
-        public static void WaitForScript(IWebDriver driver)
+        public static void WaitForScript(Browser browser)
         {
-            IJavaScriptExecutor script = (IJavaScriptExecutor)driver;
+            IJavaScriptExecutor script = (IJavaScriptExecutor)browser.Driver;
             
             for (int i =0; i < 20 ; i++)
             {
@@ -47,9 +47,9 @@ namespace Autotests
             wait.Until(ExpectedConditions.StalenessOf(element.RootElement));
         }
 
-        public static void WaitForXmlReady(IWebDriver driver)
+        public static void WaitForXmlReady(Browser browser)
         {
-            IJavaScriptExecutor script = (IJavaScriptExecutor)driver;
+            IJavaScriptExecutor script = (IJavaScriptExecutor)browser.Driver;
 
             for (int i=0; i < 2000; i++)
             {
@@ -68,6 +68,12 @@ namespace Autotests
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             return (wait.Until(ExpectedConditions.ElementToBeClickable(locator)));
+        }
+
+        public static void WaitUntilEementDisappear(Browser browser, BaseElement element)
+        {
+            WebDriverWait wait = new WebDriverWait(browser.Driver, TimeSpan.FromSeconds(20));
+            wait.Until(ExpectedConditions.StalenessOf(element.RootElement));
         }
     }
 }

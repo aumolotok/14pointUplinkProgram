@@ -9,7 +9,7 @@ namespace Autotests.PageElements
 {
     class TextField : InteractiveElement 
     {
-        public TextField(IWebDriver driver, By locator) : base(driver, locator)
+        public TextField(Browser browser, By locator) : base(browser, locator)
         {
         }
 

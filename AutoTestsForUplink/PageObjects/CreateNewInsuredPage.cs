@@ -16,10 +16,10 @@ namespace Autotests.PageOdjects
         public Button Continue { get; }
         public By ContinueLocator = By.CssSelector("input[value=\"Continue\"]");
 
-        public CreateNewInsuredPage(IWebDriver driver) : base(driver)
+        public CreateNewInsuredPage(Browser browser) : base(browser)
         {
-            Continue = new Button(driver, ContinueLocator);
-            InsuredName = new TextField(driver, insuredNameLocator);
+            Continue = new Button(browser, ContinueLocator);
+            InsuredName = new TextField(browser, insuredNameLocator);
         }
     }
 }
