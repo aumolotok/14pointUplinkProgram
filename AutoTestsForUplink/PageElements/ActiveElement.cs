@@ -17,7 +17,5 @@ namespace Autotests.PageElements
         public InteractiveElement(Browser browser, By locator) : base(browser, locator)
         {
         }
-
-
     }
 }

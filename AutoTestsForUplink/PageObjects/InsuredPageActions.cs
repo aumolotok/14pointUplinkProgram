@@ -9,14 +9,14 @@ namespace Autotests.PageObjects
 {
     static class InsuredPageActions
     {
-        static public void getXML(this InsuredPage Page)
+        static public void OperXMLTab(this InsuredPage page)
         {
-            Page.AdditionalFunctionsQuestionnaireSelect.ChooseOption(Page, "Get");
+            page.AdditionalFunctionsQuestionnaireSelect.ChooseOption(page, "Get");
         }
 
         static public void GoToAddNewRequestForQuote(this InsuredPage Page)
         {
-            Page.InsuranceTypes.ChooseOption(Page, "New");
+            Page.InsuranceTypes.ChooseOption(Page, "New"); //TODO Вернуть обьект страницы
         }
     }
 }

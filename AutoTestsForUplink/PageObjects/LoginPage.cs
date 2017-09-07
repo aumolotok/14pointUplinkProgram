@@ -25,6 +25,5 @@ namespace Autotests.PageOdjects
             PasswordField = new TextField(driver, passwordFieldLocator);
             SignIn = new Button(driver, signInLocation);
         }
-
     }
 }

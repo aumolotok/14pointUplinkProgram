@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Autotests.PageElements
 {
-    class TextField : InteractiveElement//, IFillable
+    class TextField : InteractiveElement 
     {
         public TextField(IWebDriver driver, By locator) : base(driver, locator)
         {

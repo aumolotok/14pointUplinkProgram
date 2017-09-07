@@ -33,7 +33,7 @@ namespace Autotests
 
         static public XmlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)
         {
-            insuredPage.getXML();
+            insuredPage.OperXMLTab();
             XmlWorker.FindXmlTab(driver);
             XmlAccordance accordance = new XmlAccordance(insuredPage.PolicyInsuranceType, driver.PageSource);
             return accordance;
