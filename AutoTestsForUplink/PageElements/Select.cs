@@ -24,10 +24,6 @@ namespace Autotests.PageElements
             OptionsLocator = optionsLocator;
         }
 
-        public Select(IWebDriver driver,By locator) : base(driver,locator)
-
-        }
-        {
         public void ChooseOption(BasePage sender, string optionText)
         {
             List<IWebElement> options = GetAllOptions(sender);

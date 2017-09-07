@@ -64,7 +64,7 @@ namespace Autotests
             } 
         }
 
-        public static  IWebElement WaitClickability(IWebDriver driver, By locator, int seconds = 30)
+        public static  IWebElement WaitClickability(IWebDriver driver, By locator, int seconds = 40)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(seconds));
             return (wait.Until(ExpectedConditions.ElementToBeClickable(locator)));

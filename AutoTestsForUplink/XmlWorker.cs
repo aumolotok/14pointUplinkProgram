@@ -34,9 +34,10 @@ namespace Autotests
 
         static public XmlAccordance GetXmlOfLine(Browser browser, InsuredPage insuredPage)
         {
+            string insuranceType = insuredPage.PolicyTypeField.GetInnerText();
             insuredPage.OperXMLTab();
             FindXmlTab(browser);
-            return new XmlAccordance(insuredPage.PolicyInsuranceType, browser.GetSource());
+            return new XmlAccordance(insuranceType, browser.GetSource());
         }
     }
 }

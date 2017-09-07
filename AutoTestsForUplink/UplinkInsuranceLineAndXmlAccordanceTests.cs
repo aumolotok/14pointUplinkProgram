@@ -48,12 +48,13 @@ namespace Autotests
         {
             browser.CloseAll();
             
-            Facility.InitElementsOfPage(loginPage);
+            
         }
 
         public void LogIntoSystem()
         {
             LoginPage loginPage = new LoginPage(browser);
+            Facility.InitElementsOfPage(loginPage);
             loginPage.LogInToSystem(Configurator.GetEmail(), Configurator.GetPassword());
         }
 
@@ -62,7 +63,6 @@ namespace Autotests
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(browser);
             
             Facility.InitElementsOfPage(allInsuredPage);
-            allInsuredPage.GoToCreatingNewInsured();
 
             CreateNewInsuredPage newInsuredpage = allInsuredPage.GoToCreatingNewInsured();
             Facility.InitElementsOfPage(newInsuredpage);

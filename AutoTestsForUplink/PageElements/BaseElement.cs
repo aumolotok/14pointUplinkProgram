@@ -9,7 +9,7 @@ using Autotests.PageElements;
 
 namespace Autotests.PageElements
 {
-    class BaseElement
+    class BaseElement: ICustomElement
     {
         public IWebElement RootElement { get; }
 

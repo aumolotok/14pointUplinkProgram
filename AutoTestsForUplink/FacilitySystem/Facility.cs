@@ -10,7 +10,7 @@ using Autotests.PageElements;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.PageObjects;
-using Autotests.PageElements.Intefaces;
+using Autotests.PageElements;
 using OpenQA.Selenium.Support.UI;
 using Autotests.FacilitySystem;
 
@@ -26,30 +26,30 @@ namespace Autotests
             {
                 Type propertyType = property.PropertyType;
                 Type сustomElementType = typeof(ICustomElement);
-                Type selectType = typeof(IDropDown);
+                Type selectType = typeof(Select);
 
 
                 if (propertyType.GetInterface(сustomElementType.Name) != null && property.GetCustomAttributes() != null )
                 {
-                    if ((propertyType.GetInterface(selectType.Name) == null))
+                    if ((propertyType.Name != selectType.Name))
                     { 
-                        ConstructorInfo c = propertyType.GetConstructor( new Type[2] { typeof(IWebDriver), typeof(By) });
+                        ConstructorInfo c = propertyType.GetConstructor( new Type[2] { typeof(Browser), typeof(By) });
                         ConstractBy constructAttribute = (ConstractBy)property.GetCustomAttribute(typeof(ConstractBy));
 
                         if (constructAttribute != null)
                         {
-                            property.SetValue(Page, c.Invoke(new object[2] { Page.Driver, constructAttribute.Locator }));
+                            property.SetValue(Page, c.Invoke(new object[2] { Page.Browser, constructAttribute.Locator }));
                         }
                     }
 
-                    if ((propertyType.GetInterface(selectType.Name) != null))
+                    if ((propertyType.Name == selectType.Name))
                     {
-                        ConstructorInfo c = propertyType.GetConstructor(new Type[3] { typeof(IWebDriver), typeof(By), typeof(By) });
+                        ConstructorInfo c = propertyType.GetConstructor(new Type[3] { typeof(Browser), typeof(By), typeof(By) });
                         ConstructWithOptions constructWithOptionsAttribute = (ConstructWithOptions)property.GetCustomAttribute(typeof(ConstructWithOptions));
 
                         if (constructWithOptionsAttribute !=null)
                         { 
-                        property.SetValue(Page, c.Invoke(new object[3] { Page.Driver, constructWithOptionsAttribute.Locator, constructWithOptionsAttribute.OptionsLocator }));
+                        property.SetValue(Page, c.Invoke(new object[3] { Page.Browser, constructWithOptionsAttribute.Locator, constructWithOptionsAttribute.OptionsLocator }));
                         }
                     }
                 }

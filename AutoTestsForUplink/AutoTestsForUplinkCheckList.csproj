@@ -84,7 +84,7 @@
     <Compile Include="FacilitySystem\ConstractBy.cs" />
     <Compile Include="FacilitySystem\ConstructOptions.cs" />
     <Compile Include="FacilitySystem\Facility.cs" />
-    <Compile Include="PageElements\ActiveElement.cs" />
+    <Compile Include="PageElements\ICustomElement.cs" />
     <Compile Include="PageElements\InteractiveElement.cs" />
     <Compile Include="PageElements\BaseElement.cs" />
     <Compile Include="PageElements\Browser.cs" />
@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

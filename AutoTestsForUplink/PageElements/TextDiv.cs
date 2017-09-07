@@ -15,6 +15,7 @@ namespace Autotests.PageElements
         }
         public TextDiv(Browser browser, By locator) : base(browser, locator)
         {
+
         }
     }
 }
