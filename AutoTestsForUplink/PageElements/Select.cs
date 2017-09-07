@@ -16,7 +16,7 @@ namespace Autotests.PageElements
         public List<IWebElement> GetAllOptions(BasePage Page)
         {
             Click();
-            return Page.Driver.FindElements(OptionsLocator).ToList();
+            return Page.Browser.FindElements(OptionsLocator).ToList();
         }
 
 

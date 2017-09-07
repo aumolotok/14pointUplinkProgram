@@ -8,6 +8,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using Autotests.PageOdjects;
 using Autotests.PageObjects;
+using Autotests.PageElements;
 
 namespace Autotests
 {
@@ -19,23 +20,23 @@ namespace Autotests
                 { "General Liability", "GeneralLiabilityPolicyQuoteInqRq" }
             };
 
-        static public void FindXmlTab(IWebDriver driver)
+        static public void FindXmlTab(Browser browser)
         {
-            List<string> handlerList = driver.WindowHandles.ToList();
+            List<string> handlerList = browser.Driver.WindowHandles.ToList();
             for (int i = 0; i < handlerList.Count; i++)
             {
-                driver.SwitchTo().Window(handlerList[i]);
-                if (driver.Url.Contains(@"acordxml"))
+                browser.Driver.SwitchTo().Window(handlerList[i]);
+                if (browser.GetCurentUrl().Contains(@"acordxml"))
                 { break; }
             }
-            Waitings.WaitForXmlReady(driver);
+            Waitings.WaitForXmlReady(browser);
         }
 
-        static public XmlAccordance GetXmlOfLine(IWebDriver driver, InsuredPage insuredPage)
+        static public XmlAccordance GetXmlOfLine(Browser browser, InsuredPage insuredPage)
         {
             insuredPage.OperXMLTab();
-            FindXmlTab(driver);
-            return new XmlAccordance(insuredPage.PolicyInsuranceType, driver.PageSource); ;
+            FindXmlTab(browser);
+            return new XmlAccordance(insuredPage.PolicyInsuranceType, browser.GetSource());
         }
     }
 }

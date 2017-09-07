@@ -17,10 +17,10 @@ namespace Autotests.PageOdjects
         public Button Continue { get; }
         private By continueLocator = By.XPath("//div/button[text() =\"Continue\"]");
 
-        public CreateNewRequestForQuotePage(IWebDriver driver) : base(driver)
+        public CreateNewRequestForQuotePage(Browser browser) : base(browser)
         {
-            LineSelect = new Select(driver, lineSelectLocator, lineSelectOptionsLocator);
-            Continue = new Button(driver, continueLocator);
+            LineSelect = new Select(browser, lineSelectLocator, lineSelectOptionsLocator);
+            Continue = new Button(browser, continueLocator);
         }
     }
 }

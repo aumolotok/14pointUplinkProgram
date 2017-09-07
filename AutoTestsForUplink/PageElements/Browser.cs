@@ -1,14 +1,15 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 
 namespace Autotests.PageElements
 {
-    class Browser
+    public class Browser
     {
         public IWebDriver Driver { get; set; }
 
@@ -17,13 +18,13 @@ namespace Autotests.PageElements
             return Waitings.WaitClickability(Driver, locator);
         }
 
+        public List<IWebElement> FindElements(By locator)
+        {
+            return Driver.FindElements(locator).ToList();
+        }
+
         public void OpenPage(string url)
         {
-            if (Driver == null)
-            {
-                Driver = new FirefoxDriver(); //Hack
-            }
-
             Driver.Url = Configurator.GetUrl();
             Driver.Manage().Window.Maximize();
         }
@@ -46,6 +47,18 @@ namespace Autotests.PageElements
         public string GetCurentUrl()
         {
             return Driver.Url;
+        }
+
+        public string GetPageSourceAndCloseTab()
+        {
+            string source = GetSource();
+            Driver.Close();
+            return source;
+        }
+
+        public string GetSource()
+        {
+            return Driver.PageSource;
         }
     }
 }

@@ -19,11 +19,11 @@ namespace Autotests.PageOdjects
         public Button SignIn { get; }
         private By signInLocation = By.ClassName("signin-button");
 
-        public LoginPage(IWebDriver driver) : base(driver)
+        public LoginPage(Browser browser) : base(browser)
         {
-            EmailField = new TextField(driver, emailFieldLocator);
-            PasswordField = new TextField(driver, passwordFieldLocator);
-            SignIn = new Button(driver, signInLocation);
+            EmailField = new TextField(browser, emailFieldLocator);
+            PasswordField = new TextField(browser, passwordFieldLocator);
+            SignIn = new Button(browser, signInLocation);
         }
     }
 }
