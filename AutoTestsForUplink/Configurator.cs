@@ -28,6 +28,8 @@ namespace Autotests
            
         {
             XDocument xdocument =  XDocument.Load(Environment.CurrentDirectory + @"Config.xml");
+            string DLLFolder = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("AutoTestsForUplinkCheckList.dll", "");
+            XDocument xdocument =  XDocument.Load (DLLFolder  + @"Config.xml");
             return new User(GetEmail(xdocument), GetPassword(xdocument));
 
         }
