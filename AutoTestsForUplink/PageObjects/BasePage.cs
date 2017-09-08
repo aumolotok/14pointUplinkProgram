@@ -8,7 +8,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using Autotests.PageElements;
 
-namespace Autotests.PageOdjects
+namespace Autotests.PageObjects
 {
     abstract class BasePage
     {

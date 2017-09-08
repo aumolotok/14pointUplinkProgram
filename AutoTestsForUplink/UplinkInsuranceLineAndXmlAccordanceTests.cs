@@ -1,4 +1,4 @@
-﻿using Autotests.PageOdjects;
+﻿using Autotests.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -22,17 +22,17 @@ namespace Autotests
        [Test]
         public void InsuranceLineAndXmlAccordanceCheck()
         {
-            LogIntoSystem();
+            Site.LogIntoSystem(browser, Configurator.GetUser());
 
-            CreateNewInsured("InsuredName","General");
+            Insured.CreateNewInsured(browser, "InsuredName","General");
 
-            GetXmlOfCurrentLine();
+            Insured.GetXmlOfCurrentLine(browser, Checker);
 
-            CreateNewRequestForQuote("Workers");
+            Insured.CreateNewRequestForQuote(browser,"Workers");
 
-            GetXmlOfCurrentLine();
+            Insured.GetXmlOfCurrentLine(browser, Checker);
 
-            Assert.IsTrue(SumUpResults());
+            Assert.IsTrue(Checker.SumUpResults());
         }
 
         [SetUp]
@@ -49,58 +49,6 @@ namespace Autotests
             browser.CloseAll();
             
             
-        }
-
-        public void LogIntoSystem()
-        {
-            LoginPage loginPage = new LoginPage(browser);
-            Facility.InitElementsOfPage(loginPage);
-            loginPage.LogInToSystem(Configurator.GetEmail(), Configurator.GetPassword());
-        }
-
-        void CreateNewInsured(string insuredName, string line)
-        {            
-            AllInsuredsPage allInsuredPage = new AllInsuredsPage(browser);
-            
-            Facility.InitElementsOfPage(allInsuredPage);
-
-            CreateNewInsuredPage newInsuredpage = allInsuredPage.GoToCreatingNewInsured();
-            Facility.InitElementsOfPage(newInsuredpage);
-            newInsuredpage.createNewInsured(insuredName);
-
-            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
-            Facility.InitElementsOfPage(newRequest);
-            newRequest.CreateNewRequestForQuote(line);
-        }
-
-        void CreateNewRequestForQuote(string line)
-        {
-            InsuredPage insuredPage = new InsuredPage(browser);
-
-            Facility.InitElementsOfPage(insuredPage);
-            insuredPage.GoToAddNewRequestForQuote();
-
-            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
-            Facility.InitElementsOfPage(newRequest);
-            newRequest.CreateNewRequestForQuote(line);
-        }
-
-        void GetXmlOfCurrentLine()
-        {
-            InsuredPage insuredPage = new InsuredPage(browser);
-            Facility.InitElementsOfPage(insuredPage);
-
-            Checker.AddPair(XmlWorker.GetXmlOfLine(browser, insuredPage));
-            browser.CloseCurrentTab();
-
-            List<string> handlerList = browser.Driver.WindowHandles.ToList();
-            browser.Driver.SwitchTo().Window(handlerList[0]);
-        }
-
-        bool SumUpResults()
-        {
-            Checker.LineXmlTest();
-            return Checker.CheckPares();
         }
     }
 }

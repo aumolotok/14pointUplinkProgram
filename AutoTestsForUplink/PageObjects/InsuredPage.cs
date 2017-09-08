@@ -9,7 +9,7 @@ using Autotests.FacilitySystem;
 using OpenQA.Selenium.Support.PageObjects;
 using Autotests.PageObjects;
 
-namespace Autotests.PageOdjects
+namespace Autotests.PageObjects
 {
     class InsuredPage : BasePage
     {

@@ -8,7 +8,7 @@ using Autotests.PageElements;
 using Autotests.FacilitySystem;
 using OpenQA.Selenium.Support.PageObjects;
 
-namespace Autotests.PageOdjects
+namespace Autotests.PageObjects
 {
     class AllInsuredsPage : BasePage
     {
