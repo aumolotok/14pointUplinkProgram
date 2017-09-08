@@ -32,7 +32,7 @@ namespace Autotests
 
             Insured.GetXmlOfCurrentLine(browser, Checker);
 
-            Assert.IsTrue(SumUpResults());
+            Assert.IsTrue(Checker.SumUpResults());
         }
 
         [SetUp]
@@ -47,50 +47,6 @@ namespace Autotests
         public void CleanUpTest()
         {
             browser.CloseAll();
-        }
-
-        //public void LogIntoSystem(User user)
-        //{
-        //    LoginPage loginPage = new LoginPage(browser);
-        //    loginPage.LogInToSystem(user);
-        //}
-
-        //void CreateNewInsured(string insuredName, string line)
-        //{            
-        //    AllInsuredsPage allInsuredPage = new AllInsuredsPage(browser);
-            
-        //    CreateNewInsuredPage newInsuredpage = allInsuredPage.GoToCreatingNewInsured();
-        //    newInsuredpage.createNewInsured(insuredName);
-
-        //    CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
-        //    newRequest.CreateNewRequestForQuote(line);
-        //}
-
-        //void CreateNewRequestForQuote(string line)
-        //{
-        //    InsuredPage insuredPage = new InsuredPage(browser);
-
-        //    insuredPage.GoToAddNewRequestForQuote();
-
-        //    CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
-        //    newRequest.CreateNewRequestForQuote(line);
-        //}
-
-        //void GetXmlOfCurrentLine()
-        //{
-        //    InsuredPage insuredPage = new InsuredPage(browser);
-
-        //    Checker.AddPair(XmlWorker.GetXmlOfLine(browser, insuredPage));
-        //    browser.CloseCurrentTab();
-
-        //    List<string> handlerList = browser.Driver.WindowHandles.ToList();
-        //    browser.Driver.SwitchTo().Window(handlerList[0]);
-        //}
-
-        bool SumUpResults()
-        {
-            Checker.LineXmlTest();
-            return Checker.CheckPares();
         }
     }
 }

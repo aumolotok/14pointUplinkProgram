@@ -41,5 +41,11 @@ namespace Autotests
             }
             return true;
         }
+
+        public bool SumUpResults()
+        {
+            LineXmlTest();
+            return CheckPares();
+        }
     }
 }
