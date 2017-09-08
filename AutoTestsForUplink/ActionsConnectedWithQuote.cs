@@ -17,6 +17,7 @@ namespace Autotests
         public static void BuildNewRequestForQuote(Browser browser,string line)
         {
             CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
+            Facility.InitElementsOfPage(newRequest);
             newRequest.CreateNewRequestForQuote(line);
         }
     }

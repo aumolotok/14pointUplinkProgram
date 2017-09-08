@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
-using Autotests.PageOdjects;
+using Autotests.PageObjects;
 using NUnit.Framework;
 using Autotests.PageElements;
 using OpenQA.Selenium;

@@ -13,8 +13,10 @@ namespace Autotests
         public static void CreateNewInsured(Browser browser, string insuredName, string line)
         {
             AllInsuredsPage allInsuredPage = new AllInsuredsPage(browser);
+            Facility.InitElementsOfPage(allInsuredPage);
 
             CreateNewInsuredPage newInsuredpage = allInsuredPage.GoToCreatingNewInsured();
+            Facility.InitElementsOfPage(newInsuredpage);
             newInsuredpage.createNewInsured(insuredName);
 
             Quote.BuildNewRequestForQuote(browser, line);
@@ -23,6 +25,7 @@ namespace Autotests
         public static void CreateNewRequestForQuote(Browser browser, string line)
         {
             InsuredPage insuredPage = new InsuredPage(browser);
+            Facility.InitElementsOfPage(insuredPage);
             insuredPage.GoToAddNewRequestForQuote();
 
             Quote.BuildNewRequestForQuote(browser, line);
@@ -31,6 +34,7 @@ namespace Autotests
         public static void GetXmlOfCurrentLine(Browser browser,XmlAccordanceChecker Checker)
         {
             InsuredPage insuredPage = new InsuredPage(browser);
+            Facility.InitElementsOfPage(insuredPage);
 
             Checker.AddPair(XmlWorker.GetXmlOfLine(browser, insuredPage));
             browser.CloseCurrentTab();

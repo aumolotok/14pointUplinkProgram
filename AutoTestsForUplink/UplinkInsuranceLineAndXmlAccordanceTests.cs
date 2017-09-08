@@ -46,9 +46,7 @@ namespace Autotests
         [TearDown]
         public void CleanUpTest()
         {
-            browser.CloseAll();
-            
-            
+            browser.CloseAll();           
         }
     }
 }

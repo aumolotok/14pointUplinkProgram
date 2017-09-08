@@ -13,6 +13,7 @@ namespace Autotests
         public static void LogIntoSystem(Browser browser, User user)
         {
             LoginPage loginPage = new LoginPage(browser);
+            Facility.InitElementsOfPage(loginPage);
             loginPage.LogInToSystem(user);
         }
     }
