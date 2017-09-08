@@ -80,6 +80,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionConnectedWithWholeSite.cs" />
+    <Compile Include="ActionsConnectedWIthInsured.cs" />
+    <Compile Include="ActionsConnectedWithQuote.cs" />
     <Compile Include="Configurator.cs" />
     <Compile Include="PageElements\InteractiveElement.cs" />
     <Compile Include="PageElements\BaseElement.cs" />
@@ -127,7 +130,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="PageElements\Config.xml" />
   </ItemGroup>

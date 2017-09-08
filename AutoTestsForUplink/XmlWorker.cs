@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using Autotests.PageOdjects;
+using Autotests.PageObjects;
 using Autotests.PageObjects;
 using Autotests.PageElements;
 

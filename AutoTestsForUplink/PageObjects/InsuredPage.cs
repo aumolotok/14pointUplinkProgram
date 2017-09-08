@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Autotests.PageElements;
 using Autotests.PageObjects;
 
-namespace Autotests.PageOdjects
+namespace Autotests.PageObjects
 {
     class InsuredPage : BasePage
     {

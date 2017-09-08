@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autotests.PageElements;
 
-namespace Autotests.PageOdjects
+namespace Autotests.PageObjects
 {
     class CreateNewRequestForQuotePage : BasePage
     {

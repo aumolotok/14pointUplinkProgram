@@ -1,4 +1,4 @@
-﻿using Autotests.PageOdjects;
+﻿using Autotests.PageObjects;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
@@ -22,15 +22,15 @@ namespace Autotests
        [Test]
         public void InsuranceLineAndXmlAccordanceCheck()
         {
-            LogIntoSystem();
+            Site.LogIntoSystem(browser, Configurator.GetUser());
 
-            CreateNewInsured("InsuredName","General");
+            Insured.CreateNewInsured(browser, "InsuredName","General");
 
-            GetXmlOfCurrentLine();
+            Insured.GetXmlOfCurrentLine(browser, Checker);
 
-            CreateNewRequestForQuote("Workers");
+            Insured.CreateNewRequestForQuote(browser,"Workers");
 
-            GetXmlOfCurrentLine();
+            Insured.GetXmlOfCurrentLine(browser, Checker);
 
             Assert.IsTrue(SumUpResults());
         }
@@ -49,44 +49,43 @@ namespace Autotests
             browser.CloseAll();
         }
 
-        public void LogIntoSystem()
-        {
-            LoginPage loginPage = new LoginPage(browser);
-            loginPage.LogInToSystem(Configurator.GetUser());
-        }
+        //public void LogIntoSystem(User user)
+        //{
+        //    LoginPage loginPage = new LoginPage(browser);
+        //    loginPage.LogInToSystem(user);
+        //}
 
-        void CreateNewInsured(string insuredName, string line)
-        {            
-            AllInsuredsPage allInsuredPage = new AllInsuredsPage(browser);
+        //void CreateNewInsured(string insuredName, string line)
+        //{            
+        //    AllInsuredsPage allInsuredPage = new AllInsuredsPage(browser);
             
+        //    CreateNewInsuredPage newInsuredpage = allInsuredPage.GoToCreatingNewInsured();
+        //    newInsuredpage.createNewInsured(insuredName);
 
-            CreateNewInsuredPage newInsuredpage = allInsuredPage.GoToCreatingNewInsured();
-            newInsuredpage.createNewInsured(insuredName);
+        //    CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
+        //    newRequest.CreateNewRequestForQuote(line);
+        //}
 
-            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
-            newRequest.CreateNewRequestForQuote(line);
-        }
+        //void CreateNewRequestForQuote(string line)
+        //{
+        //    InsuredPage insuredPage = new InsuredPage(browser);
 
-        void CreateNewRequestForQuote(string line)
-        {
-            InsuredPage insuredPage = new InsuredPage(browser);
+        //    insuredPage.GoToAddNewRequestForQuote();
 
-            insuredPage.GoToAddNewRequestForQuote();
+        //    CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
+        //    newRequest.CreateNewRequestForQuote(line);
+        //}
 
-            CreateNewRequestForQuotePage newRequest = new CreateNewRequestForQuotePage(browser);
-            newRequest.CreateNewRequestForQuote(line);
-        }
+        //void GetXmlOfCurrentLine()
+        //{
+        //    InsuredPage insuredPage = new InsuredPage(browser);
 
-        void GetXmlOfCurrentLine()
-        {
-            InsuredPage insuredPage = new InsuredPage(browser);
+        //    Checker.AddPair(XmlWorker.GetXmlOfLine(browser, insuredPage));
+        //    browser.CloseCurrentTab();
 
-            Checker.AddPair(XmlWorker.GetXmlOfLine(browser, insuredPage));
-            browser.CloseCurrentTab();
-
-            List<string> handlerList = browser.Driver.WindowHandles.ToList();
-            browser.Driver.SwitchTo().Window(handlerList[0]);
-        }
+        //    List<string> handlerList = browser.Driver.WindowHandles.ToList();
+        //    browser.Driver.SwitchTo().Window(handlerList[0]);
+        //}
 
         bool SumUpResults()
         {
