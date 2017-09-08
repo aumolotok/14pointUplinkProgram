@@ -17,18 +17,16 @@ using Autotests.FacilitySystem;
 namespace Autotests
 {
     static class Facility
-    {             
+    {
+        static private Type сustomElementType = typeof(ICustomElement);
+        static private Type selectType = typeof(Select);
+
         public static void InitElementsOfPage(BasePage Page)
         {
-            List<PropertyInfo> allproperty = Page.GetType().GetProperties().ToList();
-
-            foreach(PropertyInfo property in allproperty)
+            foreach(PropertyInfo property in Page.GetType().GetProperties().ToList())
             {
                 Type propertyType = property.PropertyType;
-                Type сustomElementType = typeof(ICustomElement);
-                Type selectType = typeof(Select);
-
-
+                
                 if (propertyType.GetInterface(сustomElementType.Name) != null && property.GetCustomAttributes() != null )
                 {
                     if ((propertyType.Name != selectType.Name))
