@@ -39,7 +39,7 @@ namespace Autotests
         public void InitTest()
         {
             browser = new Browser();
-            browser.OpenPage(Configurator.GetUrl());
+            browser.OpenStertPage(/*Configurator.GetUrl()*/);
             Checker = new XmlAccordanceChecker();
         }
 

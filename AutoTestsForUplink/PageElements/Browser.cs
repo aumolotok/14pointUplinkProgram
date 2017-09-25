@@ -23,7 +23,7 @@ namespace Autotests.PageElements
             return Driver.FindElements(locator).ToList();
         }
 
-        public void OpenPage(string url)
+        public void OpenStertPage(/*string url*/)
         {
             Driver.Url = Configurator.GetUrl();
             Driver.Manage().Window.Maximize();
